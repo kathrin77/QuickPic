@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">QuickPic</string>
+    <string name="btnStartMountains">Spiel das Berg-Quiz!</string>
+    <string name="btnStartFish">Spiel das Fisch-Quiz!</string>
+    <string name="btnStartTrees">Spiel das Baum-Spiel!</string>
+    <string name="btnStartseite">zurück zur Startseite</string>
+    <string name="tVGameOver">Game Over!</string>
 </resources>
