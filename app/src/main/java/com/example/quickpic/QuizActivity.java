@@ -7,20 +7,13 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
 public class QuizActivity extends AppCompatActivity {
 
     Button btn1, btn2, btn3, btn4;
     TextView tvLevel, tvPoints, tvRound, tvQuestion, tvLives, tvTime;
     ImageView imgQuiz;
 
-    int points = 0;
-    int round = 0;
-    int level = 0;
-    int lives = 3;
-
-
+    Quickpic game = new Quickpic();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +37,7 @@ public class QuizActivity extends AppCompatActivity {
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Methode aufrufen
+                //TODO
             }
         });
 
@@ -65,10 +58,61 @@ public class QuizActivity extends AppCompatActivity {
         btn4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                
+
             }
         });
 
+        loadGame('m'); //es soll vorerst automatisch Berge gestartet werden.
+
 
     }
+
+    public void loadGame(char topic) {
+        switch(topic) {
+            case 'm': loadNewMountainGame();
+            //case 'f': loadFishGame();
+            //case 't': loadTreeGame();
+            //default: startMountainGame();
+        }
+
+    }
+
+    /**
+     * Baut den Startbildschirm auf:
+     * level, runde, punkte auf 1,1,0 gesetzt
+     * Frage für diese Runde gesetzt
+     * erstes Bild geladen
+     * 4 Antworten geladen
+     *
+     */
+
+    public void loadNewMountainGame() {
+
+        //Level, Runde, Leben, Punkte setzen
+        game.setLevel(1);
+        tvLevel.setText("Level: "+game.getLevel());
+        game.setPoints(0);
+        tvPoints.setText("Points: "+game.getPoints());
+        game.setRound(1);
+        tvRound.setText("Round: "+game.getRound());
+        game.setLives(3);
+        tvLives.setText("Lives: "+game.getLives());
+
+        tvQuestion.setText(game.getMountainQuestions(game.getLevel()));
+
+        /*for (int i = game.getRound(); i < game.mountainTopics.size(); i++) {
+            Object o = game.mountainTopics.get(i);
+
+            imgQuiz.setImageResource(R.id.(toString(o[0]));
+             //vorerst wird einfach mal das 1. Bild geholt
+        }*/
+    }
+
+    //Methode: startnewLevel
+    //Methode: startnewRound
+
+
+
+
+
 }
