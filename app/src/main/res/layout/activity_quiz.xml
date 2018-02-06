@@ -6,4 +6,203 @@
     android:layout_height="match_parent"
     tools:context="com.example.quickpic.QuizActivity">
 
+    <FrameLayout
+        android:id="@+id/LevelRoundPoints"
+        android:layout_width="368dp"
+        android:layout_height="43dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/tvRound"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal"
+            tools:text="@string/round" />
+
+        <TextView
+            android:id="@+id/tvPoints"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:gravity="right"
+            tools:text="@string/points" />
+
+        <TextView
+            android:id="@+id/tvLevel"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="left"
+            android:gravity="left"
+            tools:text="@string/level" />
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/Questions"
+        android:layout_width="368dp"
+        android:layout_height="43dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/LevelRoundPoints">
+
+        <TextView
+            android:id="@+id/tvQuestion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal"
+            android:textSize="18sp"
+            tools:text="@string/question" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/imgLayout"
+        android:layout_width="368dp"
+        android:layout_height="152dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Questions">
+
+        <ImageView
+            android:id="@+id/imgQuiz"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:contentDescription="@string/imgDescription"
+            android:foregroundGravity="center_horizontal"
+            app:srcCompat="@color/colorPrimaryDark" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/btnLayout"
+        android:layout_width="368dp"
+        android:layout_height="178dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgLayout">
+
+        <Button
+            android:id="@+id/btn3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|left"
+            android:layout_margin="10dp"
+            android:gravity="bottom|left"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textSize="24sp"
+            tools:text="@string/btnStr3" />
+
+        <Button
+            android:id="@+id/btn4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|right"
+            android:layout_margin="10dp"
+            android:gravity="bottom|right"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textSize="24sp"
+            tools:text="@string/bntStr4" />
+
+        <Button
+            android:id="@+id/btn2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|right"
+            android:layout_margin="10dp"
+            android:gravity="top|right"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textSize="24sp"
+            tools:text="@string/btnStr2" />
+
+        <Button
+            android:id="@+id/btn1"
+            style="@style/Widget.AppCompat.Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|left"
+            android:layout_margin="10dp"
+            android:gravity="top|left"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textSize="24sp"
+            tools:text="@string/btnStr1" />
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/LiveClock"
+        android:layout_width="368dp"
+        android:layout_height="47dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnLayout">
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="28dp">
+
+            <FrameLayout
+                android:id="@+id/barLives"
+                android:layout_width="240dp"
+                android:layout_height="5dp"
+                android:layout_gravity="center_vertical"
+                android:background="@android:color/holo_green_dark">
+
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/tvLives"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                tools:text="@string/lives" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="25dp">
+
+            <FrameLayout
+                android:id="@+id/barTime"
+                android:layout_width="240dp"
+                android:layout_height="5dp"
+                android:layout_gravity="center_vertical"
+                android:background="@android:color/holo_red_dark">
+
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/tvTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:text="Time Left"
+                tools:text="@string/time" />
+        </FrameLayout>
+
+    </LinearLayout>
+
 </android.support.constraint.ConstraintLayout>
