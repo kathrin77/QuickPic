@@ -121,6 +121,18 @@
             tools:text="@string/btnStr2" />
 
         <Button
+            android:id="@+id/btn3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|left"
+            android:layout_margin="10dp"
+            android:gravity="bottom|left"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textSize="18sp"
+            tools:text="@string/btnStr3" />
+
+        <Button
             android:id="@+id/btn1"
             style="@style/Widget.AppCompat.Button"
             android:layout_width="wrap_content"
@@ -132,18 +144,6 @@
             android:textAllCaps="false"
             android:textSize="18sp"
             tools:text="@string/btnStr1" />
-
-        <Button
-            android:id="@+id/btn3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|left"
-            android:layout_margin="10dp"
-            android:gravity="bottom|left"
-            android:textAlignment="center"
-            android:textAllCaps="false"
-            android:textSize="18sp"
-            tools:text="@string/btnStr3" />
 
     </FrameLayout>
 

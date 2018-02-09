@@ -8,12 +8,12 @@ import java.util.ArrayList;
 
 public class Quickpic {
 
-    int points;
-    int round;
-    int level;
-    int lives;
+    int points = 0;
+    int round = 1;
+    int level = 1;
+    int lives = 3;
     String question;
-    int random_id;
+    int id;
     String img_resource;
     String answer;
     String name;

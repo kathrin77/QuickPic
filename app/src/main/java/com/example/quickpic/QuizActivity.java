@@ -1,11 +1,16 @@
 package com.example.quickpic;
 
+import android.content.Intent;
+import android.os.CountDownTimer;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import java.util.ArrayList;
 
 public class QuizActivity extends AppCompatActivity {
 
@@ -37,28 +42,28 @@ public class QuizActivity extends AppCompatActivity {
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //TODO
+                btnAnswerPressed(view);
             }
         });
 
         btn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                btnAnswerPressed(view);
             }
         });
 
         btn3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                btnAnswerPressed(view);
             }
         });
 
         btn4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                btnAnswerPressed(view);
             }
         });
 
@@ -67,6 +72,10 @@ public class QuizActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * starts a new game
+     * @param topic
+     */
     public void loadGame(char topic) {
         switch(topic) {
             case 'm': loadNewMountainGame();
@@ -78,103 +87,100 @@ public class QuizActivity extends AppCompatActivity {
     }
 
     /**
-     * Baut den Startbildschirm auf:
-     * level, runde, punkte auf 1,1,0 gesetzt
-     * Frage für diese Runde gesetzt
-     * erstes Bild geladen
-     * 4 Antworten geladen
-     *
+     * Creates initial start screen for mountain game
      */
 
     public void loadNewMountainGame() {
 
-        //Neues Spiel, erste Runde: Level = 1, Punkte = 0, Leben = 3
-        game.setLevel(1);
-        game.setPoints(0);
-        game.setLives(3);
+        //New game: set textviews
         tvLives.setText("Lives: "+game.getLives());
-        tvLevel.setText("Level: "+game.getLevel());
         tvPoints.setText("Points: "+game.getPoints());
 
-        //Neues Level starten:
+        //Start new level:
         startNewLevel(game.getLevel());
-        //Neue Runde starten:
-        game.setRound(1);
-        tvRound.setText("Round: "+game.getRound());
+        //Start new round:
         startNewRound(game.getRound());
-
 
     }
 
     /**
-     * Starts a new level: sets the question for this level
+     * Starts a new level: sets the level textview and question for this level
      * @param level
      */
-
     public void startNewLevel(int level) {
+        game.setLevel(level);
+        tvLevel.setText("Level: "+game.getLevel());
         tvQuestion.setText(game.getMountainQuestions(game.getLevel()));
     }
 
     /**
      * starts a new round:
-     * gets a random picture,
-     * sets correct answer to a random button,
-     * sets 3 random answers to the other buttons
+     * - sets Round to textview
+     * - gets a random picture, sets correct answer to a random button, sets 3 wrong answers to the other buttons
      * @param round
      */
     public void startNewRound(int round) {
 
+        game.setRound(round);
+        tvRound.setText("Round: "+game.getRound());
+
         //get random id for this round:
-        game.random_id = getRandomId();
+        game.id = getRandomId();
         //get the picture:
-        imgQuiz.setImageDrawable(getResources().getDrawable(getRandomPicture(game.random_id)));
+        imgQuiz.setImageDrawable(getResources().getDrawable(getRandomPicture(game.id)));
 
-        //get the correct answer: method getCorrectAnswer
-        //get 3 false answers: method getWrongAnswer
-        //set the correct answer to random button: setText(getCorrectAnswer...)
-        // set the false answers to the other 3 buttons
+        //New arraylist, fill with all possible ids (0-14):
+        ArrayList<Integer> index = new ArrayList<>();
+        for (int i = 0; i < game.mountains.length; i++) {
+            index.add(i);
+        }
+        //remove index with correct answer
+        index.remove(game.id);
+        //generate 3 wrong answer-ids from the remaining index
+        int wrong1 = index.remove((int)(Math.random()*index.size()));
+        int wrong2 = index.remove((int)(Math.random()*index.size()));
+        int wrong3 = index.remove((int)(Math.random()*index.size()));
+
+        //set 1 correct and 3 wrong answers to the buttons:
         //make sure, that the correct answer does not always appear on the same button: switch
-        int btnNumber = (int) (Math.random() * (4-1) + 1);
-
+        int btnNumber = (int) (Math.random() * 4);
         switch (btnNumber) {
+            case 0:
+                btn1.setText(game.mountains[game.id][game.getLevel()]);
+                btn2.setText(game.mountains[wrong1][game.getLevel()]);
+                btn3.setText(game.mountains[wrong2][game.getLevel()]);
+                btn4.setText(game.mountains[wrong3][game.getLevel()]);
+                break;
             case 1:
-                btn1.setText(getCorrectAnswer(game.random_id));
-                btn2.setText(getWrongAnswer(game.random_id));
-                btn3.setText(getWrongAnswer(game.random_id));
-                btn4.setText(getWrongAnswer(game.random_id));
+                btn1.setText(game.mountains[wrong3][game.getLevel()]);
+                btn2.setText(game.mountains[game.id][game.getLevel()]);
+                btn3.setText(game.mountains[wrong1][game.getLevel()]);
+                btn4.setText(game.mountains[wrong2][game.getLevel()]);
                 break;
             case 2:
-                btn1.setText(getWrongAnswer(game.random_id));
-                btn2.setText(getCorrectAnswer(game.random_id));
-                btn3.setText(getWrongAnswer(game.random_id));
-                btn4.setText(getWrongAnswer(game.random_id));
+                btn1.setText(game.mountains[wrong2][game.getLevel()]);
+                btn2.setText(game.mountains[wrong3][game.getLevel()]);
+                btn3.setText(game.mountains[game.id][game.getLevel()]);
+                btn4.setText(game.mountains[wrong1][game.getLevel()]);
                 break;
             case 3:
-                btn1.setText(getWrongAnswer(game.random_id));
-                btn2.setText(getWrongAnswer(game.random_id));
-                btn3.setText(getCorrectAnswer(game.random_id));
-                btn4.setText(getWrongAnswer(game.random_id));
-                break;
-            case 4:
-                btn1.setText(getWrongAnswer(game.random_id));
-                btn2.setText(getWrongAnswer(game.random_id));
-                btn3.setText(getWrongAnswer(game.random_id));
-                btn4.setText(getCorrectAnswer(game.random_id));
+                btn1.setText(game.mountains[wrong1][game.getLevel()]);
+                btn2.setText(game.mountains[wrong2][game.getLevel()]);
+                btn3.setText(game.mountains[wrong3][game.getLevel()]);
+                btn4.setText(game.mountains[game.id][game.getLevel()]);
                 break;
         }
-
-        //call method: buttonPressed...
 
     }
 
     /**
      * get a random number between 0 and 14 to be used as id for the current round
-     * @return id
+     * @return the new id for this round
      */
     public int getRandomId() {
         //eine Zufallszahl zwischen 0 und 14:
-        int id = (int) (Math.random() * 15);
-        return id;
+        int current_id = (int) (Math.random() * game.mountains.length);
+        return current_id;
     }
 
     /**
@@ -184,43 +190,52 @@ public class QuizActivity extends AppCompatActivity {
      */
     public int getRandomPicture(int id) {
 
-        //erster string aus dem array = img_...
+        //first string from array = img_..., position [?][0]
         game.img_resource = game.mountains[id][0];
-        //int der img_resource
-        int resID = getResources().getIdentifier(game.img_resource,"drawable", getPackageName());
-        //img_resource als int setzen:
-        return resID;
+        //int of the img_resource
+        int resource_ID = getResources().getIdentifier(game.img_resource,"drawable", getPackageName());
+        return resource_ID;
     }
 
-    /**
-     * get the answer to the picture id according to the current level
-     * @param id
-     * @return String answer
-     */
-    public String getCorrectAnswer(int id) {
+    public void btnAnswerPressed(View view) {
 
-        game.answer = game.mountains[id][game.level];
-        return game.answer;
+        //set view to the clicked button
+        final Button clicked = (Button) view;
+        //get the string from the clicked button
+        String buttontext = clicked.getText().toString();
 
-    }
+        if (checkAnswer(game.id, buttontext)) {
+            game.points++; //update points
+            tvPoints.setText("Points: "+game.getPoints());
+            game.round++; //update round
 
-    public String getWrongAnswer(int id) {
-
-        int wrongid = getRandomId();
-        if (wrongid != id) {
-            game.answer = game.mountains[wrongid][game.level];
         } else {
-            if (wrongid != 0) {
-                game.answer = game.mountains[(wrongid-1)][game.level];
-            } else {
-                game.answer = game.mountains[(wrongid+1)][game.level];
-            }
+            game.round++; //only update round
         }
-        return game.answer;
+        //continue the game:
+        if (game.getRound() >5) { //last round per level is over
+            game.level++;
+            if (game.getLevel() >3) { //all 3 levels done: end game
+                Intent intent = new Intent(this, HighscoreActivity.class);
+                intent.putExtra("Points", game.points);
+                startActivity(intent);
+            } else { //continue with next level
+                game.setRound(1); //start at round 1
+                startNewLevel(game.getLevel()); //start new level
+                startNewRound(game.getRound()); //start new round
+            }
+        } else { //continue with next round
+            startNewRound(game.getRound());
+        }
     }
 
-
-
-
+    public boolean checkAnswer(int id, String btnText) {
+        boolean question = false;
+        String correctAnswer = game.mountains[game.id][game.getLevel()];
+        if (correctAnswer.equals(btnText)) {
+            question = true;
+        }
+        return question;
+    }
 
 }
