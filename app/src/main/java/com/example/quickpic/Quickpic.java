@@ -13,31 +13,39 @@ public class Quickpic {
     int level;
     int lives;
     String question;
-    String picture_id;
+    int random_id;
+    String img_resource;
+    String answer;
+    String name;
+    String height;
+    String location;
+//provisorisch: img_ids nur für 3 Bilder
+    String[][] mountains = {
+            {"img_amadablam","Ama Dablam","6812 m","Nepal"},
+            {"img_dreizinnen","Drei Zinnen","2999 m","Italy"},
+            {"img_everest","Mount Everest","8848 m","Nepal/China"},
+            {"img_fitzroy","Fitz Roy","3395 m","Argentina"},
+            {"img_fuji","Fuji","3776 m","Japan"},
+            {"img_halfdome","Half Dome","2694 m","U.S.A"},
+            {"img_huashan","Hua Shan","2155 m","China"},
+            {"img_kilimanjaro","Kilimanjaro","5895 m","Tansania"},
+            {"img_matterhorn","Matterhorn","4478 m","Switzerland"},
+            {"img_popocatepetl","Popocatepetl","5426 m","Mexico"},
+            {"img_tablemountain","Table Mountain","1085 m","South Africa"},
+            {"img_uluru","Uluru","863 m","Australia"},
+            {"img_paodeacucar", "Pão de Açúcar", "396 m", "Brasil"}, //Zuckerhut
+            {"img_zugspitze","Zugspitze","2962 m","Germany"}};
 
-    //ArrayList<Topic> mountainTopics;
-    ArrayList<Object> mountainTopics;
-    ArrayList<Topic> fishQuestions;
-    ArrayList<Topic> treeQuestions;
+    String[][] fish; //TODO
+
+    String[][] trees; //TODO
 
     public Quickpic() {
-        mountainTopics = new ArrayList<> ();
-        String[] mnt1 = {"img_everest","Mount Everest","8848 m","Nepal/China"};
-        String[] mnt2 = {"img_saentis","Säntis","2505 m","Switzerland"};
-        String[] mnt3 = {"img_k2","K2","8611 m","Pakistan"};
-        String[] mnt4 = {"img_zuckerhut","Zuckerhut","396 m","Brasil"};
-
-        mountainTopics.add(mnt1);
-        mountainTopics.add(mnt2);
-        mountainTopics.add(mnt3);
-        mountainTopics.add(mnt4);
 
     }
 
     public String getMountainQuestions(int level) {
         //hier wird die Frage generiert
-
-        String question;
 
         switch (level) {
             case 1: question = "What is the name of this mountain?"; break;
@@ -48,6 +56,16 @@ public class Quickpic {
 
         return question;
 
+    }
+
+    public String getFishQuestions(int level) {
+        //TODO
+        return question;
+    }
+
+    public String getTreeQuestions(int level) {
+        //TODO
+        return question;
     }
 
     public int getLevel() {
@@ -89,6 +107,8 @@ public class Quickpic {
     public void setLives(int lives) {
         this.lives = lives;
     }
+
+
 
 
 }
