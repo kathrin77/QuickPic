@@ -11,9 +11,9 @@
     <string name="lives">Lives left:</string>
     <string name="time">Time left:</string>
     <string name="imgDescription">Guess this picture</string>
-    <string name="btnStartMountains">Spiel das Berg-Quiz!</string>
-    <string name="btnStartFish">Spiel das Fisch-Quiz!</string>
-    <string name="btnStartTrees">Spiel das Baum-Spiel!</string>
-    <string name="btnStartseite">zurück zur Startseite</string>
+    <string name="imgBtnMountain">Start mountain quiz!</string>
+    <string name="imgBtnFish">Start fish quiz!</string>
+    <string name="imgBtnTree">Start tree quiz!</string>
+    <string name="btnStartseite">Back to Start</string>
     <string name="tVGameOver">Game Over!</string>
 </resources>

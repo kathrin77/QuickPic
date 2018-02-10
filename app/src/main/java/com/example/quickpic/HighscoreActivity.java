@@ -1,6 +1,7 @@
 package com.example.quickpic;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -11,6 +12,12 @@ public class HighscoreActivity extends AppCompatActivity {
 
     Button btnStartseite;
     TextView tVcurrentPoints;
+
+    SharedPreferences preferences;
+    SharedPreferences.Editor preferencesEditor;
+
+    int currentPoints;
+    final String KEY = "savePreferences";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,5 +34,25 @@ public class HighscoreActivity extends AppCompatActivity {
         });
 
         tVcurrentPoints = findViewById(R.id.tVcurrentPoints);
+
+        preferences = this.getSharedPreferences("highscore", MODE_PRIVATE);
+        preferencesEditor = preferences.edit();
+        preferencesEditor.apply();
+
+        currentPoints = getIntent().getIntExtra("Points", 0);
+
+        showPoints();
+    }
+
+    private void showPoints() {
+        if (preferences.getInt(KEY,0) < currentPoints) {
+            tVcurrentPoints.setText("NEUER HIGHSCORE! Deine erreichten Punkte sind: " + currentPoints);
+
+            preferencesEditor.putInt(KEY, currentPoints);
+            preferencesEditor.commit();
+
+        } else {
+            tVcurrentPoints.setText("Deine erreichten Punkte sind " + currentPoints);
+        }
     }
 }
