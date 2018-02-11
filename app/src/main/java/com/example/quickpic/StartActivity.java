@@ -23,6 +23,7 @@ public class StartActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), QuizActivity.class);
+                intent.putExtra("TOPIC",'m');
                 startActivity(intent);
             }
         });
@@ -31,6 +32,7 @@ public class StartActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), QuizActivity.class);
+                intent.putExtra("TOPIC",'f');
                 startActivity(intent);
             }
         });
@@ -39,6 +41,7 @@ public class StartActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), QuizActivity.class);
+                intent.putExtra("TOPIC",'t');
                 startActivity(intent);
             }
         });
