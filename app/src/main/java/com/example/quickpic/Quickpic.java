@@ -13,11 +13,10 @@ public class Quickpic {
     String question;
     int id;
     String img_resource;
-
     char topic;
-
     String[][] answer;
 
+    //Mountains
     String[][] m = {
             {"img_amadablam","Ama Dablam","6812 m","Nepal"},
             {"img_dreizinnen","Drei Zinnen","2999 m","Italy"},
@@ -28,31 +27,34 @@ public class Quickpic {
             {"img_huashan","Hua Shan","2155 m","China"},
             {"img_kilimanjaro","Kilimanjaro","5895 m","Tansania"},
             {"img_matterhorn","Matterhorn","4478 m","Switzerland"},
-            {"img_paodeacucar", "Pão de Açúcar", "396 m", "Brasil"}, //Zuckerhut
+            {"img_paodeacucar", "Pão de Açúcar", "396 m", "Brasil"}, //dt. Zuckerhut
             {"img_popocatepetl","Popocatepetl","5426 m","Mexico"},
-            {"img_saentis", "Säntis", "2505 m", "Switzerland"}, //Zuckerhut
-            {"img_tablemountain","Table Mountain","1085 m","South Africa"},
+            {"img_saentis", "Säntis", "2505 m", "Switzerland"},
+            {"img_tablemountain","Table Mountain","1085 m","South Africa"}, //dt. Tafelberg
             {"img_uluru","Uluru","863 m","Australia"},
             {"img_zugspitze","Zugspitze","2962 m","Germany"}};
 
+    //Marine animals:
     String[][] f = {
-            {"img_beluga","Beluga Whale","4 m","Arctic Sea"}, //https://en.wikipedia.org/wiki/Beluga_whale
-            {"img_blowfish","Blowfish","35 cm","Tropic Seas"}, //https://en.wikipedia.org/wiki/Tetraodontidae
-            {"img_clownfish","Clownfish","10 cm","Pacific Ocean Reefs"}, //https://en.wikipedia.org/wiki/Amphiprioninae
-            {"img_eaglerays","Eagle Ray","5 m","Open Tropical Ocean"}, //https://en.wikipedia.org/wiki/Eagle_ray
-            {"img_goldfish","Goldfish","? m","Water"},
-            {"img_halterfish","Halterfish","? m","Water"},
-            {"img_hammerhead","Hammerhead Shark","? m","Water"},
-            {"img_humpbackwhale","Humpback Whale","? m","Water"},
-            {"img_lionfish","Lionfish","? m","Water"},
-            {"img_orca","Orca","? m","Water"},
-            {"img_palettesurgeonfish","Palette Surgeonfish","? m","Water"},
-            {"img_pilotwhale","Pilotwhale","? m","Water"},
-            {"img_seahorse", "Seahorse", "? m", "Water"},
-            {"img_whaleshark","Whale Shark","? m","Water"},
-            {"img_whiteshark","Great White Shark","? m","Water"}};
+            {"img_beluga","Beluga Whale","4,5 m","1.400 kg"},
+            {"img_blowfish","Blowfish","35 cm","13,5 kg"},
+            {"img_bullshark", "Bull Shark","1,8 m","130 kg"},
+            {"img_clownfish","Clownfish","8 cm","250 g"},
+            {"img_eaglerays","Eagle Ray","9,1 m","1.600 kg"},
+            {"img_finnwhale","Finn Whale","27 m","up to 80 tons"},
+            {"img_goldfish","Goldfish","30 cm","up to 3 kg"},
+            {"img_hammerhead","Hammerhead","6,1 m","450 kg"},
+            {"img_humpbackwhale","Humpback Whale","16 m","30.000 kg"},
+            {"img_orca","Orca Whale","8 m","5.400 kg"},
+            {"img_pilotwhale", "Pilot Whale","5,5 m","3.000 kg"},
+            {"img_spermwhale","Sperm Whale","12 m","57.000 kg"},
+            {"img_tigershark","Tiger Shark","550 cm","650 kg"},
+            {"img_whaleshark","Whale Shark","10 m","19.000 kg"},
+            {"img_whiteshark","White Shark","6,4 m","1.100 kg"}
+    };
 
-    String[][] t = { //TODO: Trees
+    //TODO: Trees
+    String[][] t = {
             {"img_amadablam","Ama Dablam","6812 m","Nepal"},
             {"img_dreizinnen","Drei Zinnen","2999 m","Italy"},
             {"img_everest","Mount Everest","8848 m","Nepal/China"},
@@ -62,12 +64,16 @@ public class Quickpic {
             {"img_huashan","Hua Shan","2155 m","China"},
             {"img_kilimanjaro","Kilimanjaro","5895 m","Tansania"},
             {"img_matterhorn","Matterhorn","4478 m","Switzerland"},
-            {"img_paodeacucar", "Pão de Açúcar", "396 m", "Brasil"}, //Zuckerhut
+            {"img_paodeacucar", "Pão de Açúcar", "396 m", "Brasil"},
             {"img_popocatepetl","Popocatepetl","5426 m","Mexico"},
-            {"img_saentis", "Säntis", "2505 m", "Switzerland"}, //Zuckerhut
+            {"img_saentis", "Säntis", "2505 m", "Switzerland"},
             {"img_tablemountain","Table Mountain","1085 m","South Africa"},
             {"img_uluru","Uluru","863 m","Australia"},
             {"img_zugspitze","Zugspitze","2962 m","Germany"}};
+
+    /**
+     * Constructor for new Quickpic Object
+     */
 
     public Quickpic() {
 
@@ -102,9 +108,9 @@ public class Quickpic {
 
     public String getFishQuestions(int level) {
         switch (level) {
-            case 1: question = "What is the name of this marine animal?"; break;
-            case 2: question = "How big is this marine animal?"; break;
-            case 3: question = "In which ocean lives this marine animal?"; break;
+            case 1: question = "What is the name of this animal?"; break;
+            case 2: question = "How long can this animal get?"; break;
+            case 3: question = "How much can this animal weigh?"; break;
             default: question = "You're done with this level!";
         }
         return question;
@@ -122,7 +128,7 @@ public class Quickpic {
 
     public void setQuestion(String question) {
         this.question = question;
-    } //maybe not needed??
+    } //not needed??
 
     public String[][] getAnswer(char topic) {
 
@@ -177,8 +183,5 @@ public class Quickpic {
     public void setTopic(char topic) {
         this.topic = topic;
     }
-
-
-
 
 }

@@ -4,17 +4,27 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+
+import static android.view.ViewGroup.*;
 
 public class QuizActivity extends AppCompatActivity {
 
     Button btn1, btn2, btn3, btn4;
     TextView tvLevel, tvPoints, tvRound, tvQuestion, tvLives, tvTime;
     ImageView imgQuiz;
+
+    //für die Leben: ein Versuch, besser wohl mit bitmaps wie in Tutorial von Nora.
+    //float measure = getResources().getDisplayMetrics().density;
+    //FrameLayout barLives = (FrameLayout) findViewById(R.id.barLives);
+    //LayoutParams lpBarLives = barLives.getLayoutParams();
+    //lpBarLives.width = Math.round(measure * 300 * game.lives);
 
     Quickpic game = new Quickpic();
 
@@ -82,7 +92,6 @@ public class QuizActivity extends AppCompatActivity {
         game.answer = game.getAnswer(game.topic);
 
         //New game: set textviews
-        tvLives.setText("Lives: "+game.getLives());
         tvPoints.setText("Points: "+game.getPoints());
 
         //Start new level:
@@ -112,6 +121,8 @@ public class QuizActivity extends AppCompatActivity {
 
         game.setRound(round);
         tvRound.setText("Round: "+game.getRound());
+        //Leben werden bei jedem Rundenstart neu auf tvLives gesetzt.
+        tvLives.setText("Lives: "+game.getLives());
 
         //get random id for this round (between 0 and 14):
         game.id = getRandomId();
@@ -205,6 +216,8 @@ public class QuizActivity extends AppCompatActivity {
             game.round++;
         } else {
             game.round++;
+            game.lives--;
+            checkGameOver(game.lives);
         }
 /*        continue the game with the next round.
         After 5 rounds, update level, start new level, start at round 1.
@@ -218,6 +231,7 @@ public class QuizActivity extends AppCompatActivity {
                 startActivity(intent);
             } else {
                 game.setRound(1);
+                game.lives++;
                 startNewLevel(game.getLevel(), game.topic);
                 startNewRound(game.getRound());
             }
@@ -241,5 +255,13 @@ public class QuizActivity extends AppCompatActivity {
         }
         return question;
     }
+
+    public void checkGameOver (int lives) {
+        if (lives < 1) {
+            Intent gameover = new Intent(this, GameOverActivity.class);
+            startActivity(gameover);
+        }
+    }
+
 
 }

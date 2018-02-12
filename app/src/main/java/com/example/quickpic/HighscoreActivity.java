@@ -46,13 +46,13 @@ public class HighscoreActivity extends AppCompatActivity {
 
     private void showPoints() {
         if (preferences.getInt(KEY,0) < currentPoints) {
-            tVcurrentPoints.setText("NEUER HIGHSCORE! Deine erreichten Punkte sind: " + currentPoints);
+            tVcurrentPoints.setText("NEW HIGHSCORE! You have reached " + currentPoints + " Points!");
 
             preferencesEditor.putInt(KEY, currentPoints);
             preferencesEditor.commit();
 
         } else {
-            tVcurrentPoints.setText("Deine erreichten Punkte sind " + currentPoints);
+            tVcurrentPoints.setText("You have reached " + currentPoints+ " Points");
         }
     }
 }
