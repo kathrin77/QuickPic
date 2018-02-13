@@ -16,4 +16,10 @@
     <string name="imgBtnTree">Start tree quiz!</string>
     <string name="btnStartseite">Back to Start</string>
     <string name="tVGameOver">Game Over!</string>
+    <string name="btnSaveName">Save</string>
+    <string name="tVName">New Highscore! Enter your name.</string>
+    <string name="tVTitle">Highscore</string>
+    <string name="currentPoints1">You have reached</string>
+    <string name="currentPoints2">points.</string>
+    <string name="HighscoreFrom">from</string>
 </resources>

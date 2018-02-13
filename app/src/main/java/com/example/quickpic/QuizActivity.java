@@ -231,7 +231,9 @@ public class QuizActivity extends AppCompatActivity {
                 startActivity(intent);
             } else {
                 game.setRound(1);
-                game.lives++;
+                if (game.lives < 3) {
+                    game.lives++;
+                }
                 startNewLevel(game.getLevel(), game.topic);
                 startNewRound(game.getRound());
             }
