@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -15,8 +16,10 @@ public class HighscoreActivity extends AppCompatActivity {
     Button btnStartseite;
     TextView tVcurrentPoints;
     TextView tVHighscore;
-    private LinearLayout LlNameInput;
-    private Button btnSaveName;
+    LinearLayout LlNameInput;
+    Button btnSaveName;
+    String KEY = "HIGHSCORE";
+    String KEY_NAME = "HIGHSCORE_NAME";
 
     SharedPreferences preferences;
     SharedPreferences.Editor preferencesEditor;
@@ -46,61 +49,101 @@ public class HighscoreActivity extends AppCompatActivity {
 
         currentPoints = getIntent().getIntExtra("Points", 0);
 
-        showHighscore();
+        showHighscore(1);
+        showHighscore(2);
+        showHighscore(3);
         showPoints();
 
         LlNameInput = findViewById(R.id.LlNameInput);
         LlNameInput.setVisibility(View.INVISIBLE);
 
-        if (currentPoints > getHighscore()) {
+        if (currentPoints > getHighscore(3)) {
             LlNameInput.setVisibility(View.VISIBLE);
         }
+
+        // Debugging
+        String get1 = "1: " + getHighscore(1);
+        String get2 = "2: " + getHighscore(2);
+        String get3 = "3: " + getHighscore(3);
+        Log.d("get1", get1);
+        Log.d("get2", get2);
+        Log.d("get3", get3);
 
         btnSaveName = findViewById(R.id.btnSaveName);
         btnSaveName.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 writeHighscore(currentPoints);
-                writeHighscoreName();
-                showHighscore();
+                showHighscore(1);
+                showHighscore(2);
+                showHighscore(3);
                 LlNameInput.setVisibility(View.INVISIBLE);
+
+                //Debugging
+                String top1 = "top1: " + preferences.getString(KEY_NAME+"1","") + " " + preferences.getInt(KEY+"1",0);
+                String top2 = "top2: " + preferences.getString(KEY_NAME+"2","") + " " + preferences.getInt(KEY+"2",0);
+                String top3 = "top3: " + preferences.getString(KEY_NAME+"3","") + " " + preferences.getInt(KEY+"3",0);
+                Log.d("top1",top1);
+                Log.d("top2", top2);
+                Log.d("top3", top3);
             }
         });
 
     }
 
-    private int getHighscore() {
-        //SharedPreferences pref = getSharedPreferences("GAME", 0);
-        return preferences.getInt("HIGHSCORE",0);
+    private int getHighscore(int keynumber) {
+        return preferences.getInt(KEY+keynumber,0);
     }
 
-    private String getHighscoreName() {
-        //SharedPreferences pref = getSharedPreferences("GAME",0);
-        return preferences.getString("HIGHSCORE_NAME", "");
+    private String getHighscoreName(int keynumber) {
+        return preferences.getString(KEY_NAME+keynumber, "");
     }
 
     private void writeHighscore(int highscore) {
-        /*SharedPreferences pref = getSharedPreferences("GAME",0);
-        SharedPreferences.Editor editor = pref.edit();*/
-        preferencesEditor.putInt("HIGHSCORE", highscore);
-        preferencesEditor.commit();
-    }
-
-    private void writeHighscoreName() {
         EditText eTName = findViewById(R.id.eTName);
         String name = eTName.getText().toString().trim();
-        /*SharedPreferences pref = getSharedPreferences("GAME",0);
-        SharedPreferences.Editor editor = pref.edit();*/
-        preferencesEditor.putString("HIGHSCORE_NAME", name);
+        String name1 = preferences.getString(KEY_NAME+"1","");
+        String name2 = preferences.getString(KEY_NAME+"2","");
+        String name3 = preferences.getString(KEY_NAME+"3","");
+        int topscore1 = preferences.getInt(KEY+"1",0);
+        int topscore2 = preferences.getInt(KEY+"2",0);
+        int topscore3 = preferences.getInt(KEY+"3",0);
+        if (highscore > topscore1) {
+            preferencesEditor.putInt(KEY+"1",highscore);
+            preferencesEditor.putString(KEY_NAME+"1", name);
+            preferencesEditor.putInt(KEY+"2",topscore1);
+            preferencesEditor.putString(KEY_NAME+"2", name1);
+            preferencesEditor.putInt(KEY+"3",topscore2);
+            preferencesEditor.putString(KEY_NAME+"3", name2);
+
+        } else if (highscore > topscore2) {
+            preferencesEditor.putInt(KEY+"1", topscore1);
+            preferencesEditor.putString(KEY_NAME+"1", name1);
+            preferencesEditor.putInt(KEY+"2", highscore);
+            preferencesEditor.putString(KEY_NAME+"2", name);
+            preferencesEditor.putInt(KEY+"3", topscore2);
+            preferencesEditor.putString(KEY_NAME+"3", name2);
+        } else {
+            preferencesEditor.putInt(KEY+"1", topscore1);
+            preferencesEditor.putString(KEY_NAME+"1", name1);
+            preferencesEditor.putInt(KEY+"2", topscore2);
+            preferencesEditor.putString(KEY_NAME+"1", name2);
+            preferencesEditor.putInt(KEY+"3", highscore);
+            preferencesEditor.putString(KEY_NAME+"3", name);
+        }
         preferencesEditor.commit();
     }
 
-     private void showHighscore() {
-        int highscore = getHighscore();
+     private void showHighscore(int keynumber) {
+        int highscore = getHighscore(keynumber);
         if (highscore > 0) {
-            tVHighscore.setText(Integer.toString(highscore) + " " + getString(R.string.HighscoreFrom) + " " + getHighscoreName());
+            if (keynumber == 1) {
+                tVHighscore.setText(Integer.toString(highscore) + " " + getString(R.string.HighscoreFrom) + " " + getHighscoreName(keynumber) + "\n");
+            } else{
+                tVHighscore.append(Integer.toString(highscore) + " " + getString(R.string.HighscoreFrom) + " " + getHighscoreName(keynumber) + "\n");
+            }
         } else {
-            tVHighscore.setText("-");
+            tVHighscore.append("-\n");
         }
     }
 
