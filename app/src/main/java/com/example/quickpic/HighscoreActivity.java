@@ -127,7 +127,7 @@ public class HighscoreActivity extends AppCompatActivity {
             preferencesEditor.putInt(KEY+"1", topscore1);
             preferencesEditor.putString(KEY_NAME+"1", name1);
             preferencesEditor.putInt(KEY+"2", topscore2);
-            preferencesEditor.putString(KEY_NAME+"1", name2);
+            preferencesEditor.putString(KEY_NAME+"2", name2);
             preferencesEditor.putInt(KEY+"3", highscore);
             preferencesEditor.putString(KEY_NAME+"3", name);
         }
