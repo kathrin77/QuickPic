@@ -95,7 +95,6 @@ public class QuizActivity extends AppCompatActivity {
      * starts a new game, based on the topic passed on by the intent from startactivity
      */
     public void loadGame() {
-        timeoutHandler.removeCallbacksAndMessages(null);
         //get the selected topic from StartActivity and set game.topic:
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
@@ -261,36 +260,39 @@ public class QuizActivity extends AppCompatActivity {
             checkGameOver(game.lives);
         }
 
-        // delay further game to get time to see the changed button color (if answer is correct)
-        doItLater.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                // set button color back to default before showing new question
-                clicked.setBackgroundResource(android.R.drawable.btn_default);
+        if (game.lives != 0) {
+
+            // delay further game to get time to see the changed button color (if answer is correct)
+            doItLater.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    // set button color back to default before showing new question
+                    clicked.setBackgroundResource(android.R.drawable.btn_default);
 
                 /* continue the game with the next round.
                 After 5 rounds, update level, start new level, start at round 1.
                 After 3 levels, go to HighScoreAcitivity, save points.
                 */
-                if (game.getRound() > 5) {
-                    game.level++;
-                    if (game.getLevel() > 3) {
-                        Intent intent = new Intent(getApplicationContext(), HighscoreActivity.class);
-                        intent.putExtra("Points", game.points);
-                        startActivity(intent);
-                    } else {
-                        game.setRound(1);
-                        if (game.lives < 3) {
-                            game.lives++;
+                    if (game.getRound() > 5) {
+                        game.level++;
+                        if (game.getLevel() > 3) {
+                            Intent intent = new Intent(getApplicationContext(), HighscoreActivity.class);
+                            intent.putExtra("Points", game.points);
+                            startActivity(intent);
+                        } else {
+                            game.setRound(1);
+                            if (game.lives < 3) {
+                                game.lives++;
+                            }
+                            startNewLevel(game.getLevel(), game.topic);
+                            startNewRound(game.getRound());
                         }
-                        startNewLevel(game.getLevel(), game.topic);
+                    } else {
                         startNewRound(game.getRound());
                     }
-                } else {
-                    startNewRound(game.getRound());
                 }
-            }
-        }, 1000);
+            }, 1000);
+        }
     }
 
     /**
