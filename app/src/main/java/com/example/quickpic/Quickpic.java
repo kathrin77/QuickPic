@@ -25,11 +25,11 @@ public class Quickpic {
             {"img_fuji","Fuji","3776 m","Japan"},
             {"img_halfdome","Half Dome","2694 m","U.S.A"},
             {"img_huashan","Hua Shan","2155 m","China"},
+            {"img_illimani", "Illimani", "6438 m", "Bolivia"},
             {"img_kilimanjaro","Kilimanjaro","5895 m","Tansania"},
             {"img_matterhorn","Matterhorn","4478 m","Switzerland"},
             {"img_paodeacucar", "Pão de Açúcar", "396 m", "Brasil"}, //dt. Zuckerhut
             {"img_popocatepetl","Popocatepetl","5426 m","Mexico"},
-            {"img_saentis", "Säntis", "2505 m", "Switzerland"},
             {"img_tablemountain","Table Mountain","1085 m","South Africa"}, //dt. Tafelberg
             {"img_uluru","Uluru","863 m","Australia"},
             {"img_zugspitze","Zugspitze","2962 m","Germany"}};

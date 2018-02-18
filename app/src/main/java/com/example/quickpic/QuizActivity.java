@@ -31,13 +31,10 @@ public class QuizActivity extends AppCompatActivity {
     // seconds till timeout
     int timeout;
 
-    //für die Leben: ein Versuch, besser wohl mit bitmaps wie in Tutorial von Nora.
-    //float measure = getResources().getDisplayMetrics().density;
-    //FrameLayout barLives = (FrameLayout) findViewById(R.id.barLives);
-    //LayoutParams lpBarLives = barLives.getLayoutParams();
-    //lpBarLives.width = Math.round(measure * 300 * game.lives);
-
     Quickpic game = new Quickpic();
+
+    //New arraylist, fill with all possible ids (0-14):
+    ArrayList<Integer> possibleAnswers = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -138,8 +135,14 @@ public class QuizActivity extends AppCompatActivity {
         //Leben werden bei jedem Rundenstart neu auf tvLives gesetzt.
         tvLives.setText("Lives: " + game.getLives());
 
-        //get random id for this round (between 0 and 14):
-        game.id = getRandomId();
+        //get random id for this round (between 0 and 14): if id exists already, get new random id.
+        int x = 0;
+        do {
+            x = getRandomId();
+        } while (possibleAnswers.contains(x));
+        game.id = x;
+        possibleAnswers.add(game.id);
+
         //get the picture:
         imgQuiz.setImageDrawable(getResources().getDrawable(getRandomPicture(game.id)));
 
