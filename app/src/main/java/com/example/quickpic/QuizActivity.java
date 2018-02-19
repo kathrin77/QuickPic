@@ -2,6 +2,7 @@ package com.example.quickpic;
 
 import android.content.Intent;
 import android.os.Handler;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -9,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,6 +25,7 @@ public class QuizActivity extends AppCompatActivity {
     Button btn1, btn2, btn3, btn4;
     TextView tvLevel, tvPoints, tvRound, tvQuestion, tvLives, tvTime;
     ImageView imgQuiz;
+    LinearLayout livesLayout;
 
     // Handler to delay the next question, to have time for changing the button color (correct: green, incorrect: red)
     Handler doItLater = new Handler();
@@ -49,6 +52,7 @@ public class QuizActivity extends AppCompatActivity {
         tvTime = (TextView) findViewById(R.id.tvTime);
 
         imgQuiz = (ImageView) findViewById(R.id.imgQuiz);
+        livesLayout = (LinearLayout) findViewById(R.id.livesLayout);
 
         timeout = 10500;
 
@@ -134,6 +138,8 @@ public class QuizActivity extends AppCompatActivity {
         tvRound.setText("Round: " + game.getRound());
         //Leben werden bei jedem Rundenstart neu auf tvLives gesetzt.
         tvLives.setText("Lives: " + game.getLives());
+        //draw the hearts:
+        drawLives(livesLayout);
 
         //get random id for this round (between 0 and 14): if id exists already, get new random id.
         int x = 0;
@@ -321,6 +327,22 @@ public class QuizActivity extends AppCompatActivity {
             Intent gameover = new Intent(this, GameOverActivity.class);
             startActivity(gameover);
         }
+    }
+
+    public void drawLives(LinearLayout livesLayout) {
+
+        //clear livesLayout before drawing new hearts:
+        livesLayout.removeAllViewsInLayout();
+
+        //draw as many hearts as lives: create new imageview, set lives.png
+        //set params to wrap_content, add to livesLayout
+        for (int i = 0; i < game.lives; i++) {
+            ImageView heart = new ImageView(this);
+            heart.setImageResource(R.drawable.lives);
+            LayoutParams layoutParams = (LayoutParams) new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+            livesLayout.addView(heart, layoutParams);
+        }
+
     }
 
 
