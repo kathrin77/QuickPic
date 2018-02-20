@@ -5,6 +5,7 @@ import android.os.Handler;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -227,7 +228,7 @@ public class QuizActivity extends AppCompatActivity {
     }
 
     /**
-     * This method calls the GameOverActivity after a certain amount if time (int timeout)
+     * This method calls the GameOverActivity after a certain amount of time (int timeout)
      * and displays the current amount of ms (int timeout)
      */
     public void resetTimeout() {
@@ -260,23 +261,41 @@ public class QuizActivity extends AppCompatActivity {
         if (checkAnswer(game.id, buttontext)) {
             clicked.setBackgroundColor(GREEN);
             game.points++;
-            tvPoints.setText("Points: " + game.getPoints());
+            tvPoints.setText(getString(R.string.tvPoints) + " " + game.getPoints());
             game.round++;
         } else {
             clicked.setBackgroundColor(RED);
+            if (checkAnswer(game.id, btn1.getText().toString())) {
+                btn1.setBackgroundColor(GREEN);
+            }
+            if (checkAnswer(game.id, btn2.getText().toString())) {
+                btn2.setBackgroundColor(GREEN);
+            }
+            if (checkAnswer(game.id, btn3.getText().toString())) {
+                btn3.setBackgroundColor(GREEN);
+            }
+            if (checkAnswer(game.id, btn4.getText().toString())) {
+                btn4.setBackgroundColor(GREEN);
+            }
             game.round++;
             game.lives--;
             checkGameOver(game.lives);
         }
 
+        doItLater.removeCallbacksAndMessages(null);
+
         if (game.lives != 0) {
 
-            // delay further game to get time to see the changed button color (if answer is correct)
+            // delay further game to get time to see the changed button color
             doItLater.postDelayed(new Runnable() {
                 @Override
                 public void run() {
                     // set button color back to default before showing new question
-                    clicked.setBackgroundResource(android.R.drawable.btn_default);
+                    // clicked.setBackgroundResource(android.R.drawable.btn_default);
+                    btn1.setBackgroundResource(android.R.drawable.btn_default);
+                    btn2.setBackgroundResource(android.R.drawable.btn_default);
+                    btn3.setBackgroundResource(android.R.drawable.btn_default);
+                    btn4.setBackgroundResource(android.R.drawable.btn_default);
 
                 /* continue the game with the next round.
                 After 5 rounds, update level, start new level, start at round 1.
@@ -289,6 +308,9 @@ public class QuizActivity extends AppCompatActivity {
                             intent.putExtra("Points", game.points);
                             startActivity(intent);
                         } else {
+                            Toast toast = Toast.makeText(getApplicationContext(), "New Level!", Toast.LENGTH_SHORT);
+                            toast.setGravity(Gravity.CENTER,0,0);
+                            toast.show();
                             game.setRound(1);
                             if (game.lives < 3) {
                                 game.lives++;

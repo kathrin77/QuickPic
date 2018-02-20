@@ -53,7 +53,7 @@ public class StartActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), HighscoreActivity.class);
-                intent.putExtra("Points",9);
+                intent.putExtra("Points",10);
                 startActivity(intent);
             }
         });

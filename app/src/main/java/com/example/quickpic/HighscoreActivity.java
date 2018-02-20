@@ -108,15 +108,14 @@ public class HighscoreActivity extends AppCompatActivity {
         int topscore1 = preferences.getInt(KEY+"1",0);
         int topscore2 = preferences.getInt(KEY+"2",0);
         int topscore3 = preferences.getInt(KEY+"3",0);
-        if (highscore > topscore1) {
+        if (highscore >= topscore1) {
             preferencesEditor.putInt(KEY+"1",highscore);
             preferencesEditor.putString(KEY_NAME+"1", name);
             preferencesEditor.putInt(KEY+"2",topscore1);
             preferencesEditor.putString(KEY_NAME+"2", name1);
             preferencesEditor.putInt(KEY+"3",topscore2);
             preferencesEditor.putString(KEY_NAME+"3", name2);
-
-        } else if (highscore > topscore2) {
+        } else if (highscore >= topscore2) {
             preferencesEditor.putInt(KEY+"1", topscore1);
             preferencesEditor.putString(KEY_NAME+"1", name1);
             preferencesEditor.putInt(KEY+"2", highscore);
