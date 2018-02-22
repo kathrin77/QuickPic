@@ -2,12 +2,11 @@ package com.example.quickpic;
 
 import android.content.Intent;
 import android.os.Handler;
-import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -23,10 +22,16 @@ import static android.view.ViewGroup.*;
 
 public class QuizActivity extends AppCompatActivity {
 
+    //LOG:
+    public static final String LOGTAG = "Quickpic"; //for logcat
+
     Button btn1, btn2, btn3, btn4;
-    TextView tvLevel, tvPoints, tvRound, tvQuestion, tvLives, tvTime;
+    TextView tvLevel, tvPoints, tvRound, tvQuestion, tvTime;
     ImageView imgQuiz;
     LinearLayout livesLayout;
+    FrameLayout barTime;
+    //float screenDensity;
+    LayoutParams lpTime;
 
     // Handler to delay the next question, to have time for changing the button color (correct: green, incorrect: red)
     Handler doItLater = new Handler();
@@ -34,6 +39,8 @@ public class QuizActivity extends AppCompatActivity {
     Handler timeoutHandler = new Handler();
     // seconds till timeout
     int timeout;
+    // adaptable value for time-bar size:
+    int screenSizer;
 
     Quickpic game = new Quickpic();
 
@@ -49,13 +56,19 @@ public class QuizActivity extends AppCompatActivity {
         tvLevel = (TextView) findViewById(R.id.tvLevel);
         tvRound = (TextView) findViewById(R.id.tvRound);
         tvPoints = (TextView) findViewById(R.id.tvPoints);
-        tvLives = (TextView) findViewById(R.id.tvLives);
         tvTime = (TextView) findViewById(R.id.tvTime);
-
         imgQuiz = (ImageView) findViewById(R.id.imgQuiz);
         livesLayout = (LinearLayout) findViewById(R.id.livesLayout);
 
         timeout = 10500;
+        screenSizer = 12;
+        barTime = (FrameLayout) findViewById(R.id.barTime);
+        //screenDensity = getResources().getDisplayMetrics().density;
+        //Log.d("Quickpic","screenDensity "+ screenDensity); //= 3.0
+        lpTime = barTime.getLayoutParams();
+        //lpTime.width = Math.round(screenDensity * (timeout/30));
+        lpTime.width = (timeout/screenSizer);
+        Log.d("Quickpic","lpTime.width initial "+lpTime.width);
 
         btn1 = (Button) findViewById(R.id.btn1);
         btn2 = (Button) findViewById(R.id.btn2);
@@ -137,9 +150,8 @@ public class QuizActivity extends AppCompatActivity {
     public void startNewRound(int round) {
         game.setRound(round);
         tvRound.setText("Round: " + game.getRound());
-        //Leben werden bei jedem Rundenstart neu auf tvLives gesetzt.
-        tvLives.setText("Lives: " + game.getLives());
-        //draw the hearts:
+
+        //Draw lives (hearts) at the beginning of every round according to no. in game.lives:
         drawLives(livesLayout);
 
         //get random id for this round (between 0 and 14): if id exists already, get new random id.
@@ -234,6 +246,8 @@ public class QuizActivity extends AppCompatActivity {
     public void resetTimeout() {
         timeoutHandler.removeCallbacksAndMessages(null);
         tvTime.setText(timeout+"");
+        lpTime.width = (timeout/screenSizer);
+        Log.d("Quickpic","lpTime.width round: "+game.round+", "+lpTime.width);
         timeoutHandler.postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -310,6 +324,11 @@ public class QuizActivity extends AppCompatActivity {
                         } else {
                             Toast toast = Toast.makeText(getApplicationContext(), "New Level!", Toast.LENGTH_SHORT);
                             toast.setGravity(Gravity.CENTER,0,0);
+                            //give the toast a visible background color and a nice width:
+                            View toastView = toast.getView();
+                            toastView.setBackgroundColor(getResources().getColor(R.color.toast_background_color));
+                            toastView.setMinimumWidth(800);
+                            //toastView.setBackgroundResource(R.drawable.toast_background_color);
                             toast.show();
                             game.setRound(1);
                             if (game.lives < 3) {
