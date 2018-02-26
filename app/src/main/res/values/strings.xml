@@ -1,26 +1,26 @@
 <resources>
     <string name="app_name">QuickPic</string>
     <string name="question">Question: ...</string>
-    <string name="level">Level:</string>
-    <string name="round">Round:</string>
-    <string name="points">Points:</string>
+    <string name="level" translatable="false">"Level: "</string>
+    <string name="round">"Round: "</string>
+    <string name="points">"Points: "</string>
     <string name="btnStr3">Answer 3</string>
     <string name="btnStr1">Answer 1</string>
     <string name="btnStr2">Answer 2</string>
     <string name="bntStr4">Answer 4</string>
-    <string name="lives">Lives left:</string>
-    <string name="time">Time left:</string>
+    <string name="time">"Time left: "</string>
     <string name="imgDescription">Guess this picture</string>
     <string name="imgBtnMountain">Start mountain quiz!</string>
     <string name="imgBtnFish">Start marine animals quiz!</string>
     <string name="imgBtnTree">Start tree quiz!</string>
     <string name="btnStartseite">Back to Start</string>
-    <string name="tVGameOver">Game Over!</string>
+    <string name="tVGameOver" translatable="false">Game Over!</string>
     <string name="btnSaveName">Save</string>
     <string name="tVName">You\'ve made it to the top 3! \n Enter your name.</string>
-    <string name="tVTitle">Highscore</string>
-    <string name="currentPoints1">You have reached</string>
-    <string name="currentPoints2">points.</string>
-    <string name="HighscoreFrom">from</string>
-    <string name="tvPoints">Points:</string>
+    <string name="tVTitle" translatable="false">Highscore</string>
+    <string name="youHaveReached">"You have reached "</string>
+    <string name="reachedPoints">" points."</string>
+    <string name="HighscoreFrom">" from "</string>
+    <string name="tvPoints">"Points: "</string>
+    <string name="new_level">New Level!</string>
 </resources>

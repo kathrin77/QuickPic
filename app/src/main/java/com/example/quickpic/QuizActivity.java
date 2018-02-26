@@ -1,6 +1,9 @@
 package com.example.quickpic;
 
 import android.content.Intent;
+import android.media.AudioManager;
+import android.media.SoundPool;
+import android.os.CountDownTimer;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -41,6 +44,12 @@ public class QuizActivity extends AppCompatActivity {
     int timeout;
     // adaptable value for time-bar size:
     int screenSizer;
+    // CountdownTimer for countdown till timeout
+    CountDownTimer timer;
+
+    SoundPool player;
+    int rightSound;
+    int falseSound;
 
     Quickpic game = new Quickpic();
 
@@ -59,6 +68,10 @@ public class QuizActivity extends AppCompatActivity {
         tvTime = (TextView) findViewById(R.id.tvTime);
         imgQuiz = (ImageView) findViewById(R.id.imgQuiz);
         livesLayout = (LinearLayout) findViewById(R.id.livesLayout);
+
+        player = new SoundPool(10, AudioManager.STREAM_MUSIC, 0);
+        rightSound = player.load(this, R.raw.right_answer, 1);
+        falseSound = player.load(this, R.raw.wrong_answer, 1);
 
         timeout = 10500;
         screenSizer = 12;
@@ -119,7 +132,7 @@ public class QuizActivity extends AppCompatActivity {
         game.answer = game.getAnswer(game.topic);
 
         //New game: set textviews
-        tvPoints.setText("Points: " + game.getPoints());
+        tvPoints.setText(getString(R.string.points) + game.getPoints());
 
         //Start new level:
         startNewLevel(game.getLevel(), game.topic);
@@ -135,7 +148,7 @@ public class QuizActivity extends AppCompatActivity {
      */
     public void startNewLevel(int level, char topic) {
         game.setLevel(level);
-        tvLevel.setText("Level: " + game.getLevel());
+        tvLevel.setText(getString(R.string.level) + game.getLevel());
         tvQuestion.setText(game.getQuestion(topic, game.getLevel()));
     }
 
@@ -149,7 +162,7 @@ public class QuizActivity extends AppCompatActivity {
      */
     public void startNewRound(int round) {
         game.setRound(round);
-        tvRound.setText("Round: " + game.getRound());
+        tvRound.setText(getString(R.string.round) + game.getRound());
 
         //Draw lives (hearts) at the beginning of every round according to no. in game.lives:
         drawLives(livesLayout);
@@ -245,8 +258,22 @@ public class QuizActivity extends AppCompatActivity {
      */
     public void resetTimeout() {
         timeoutHandler.removeCallbacksAndMessages(null);
-        tvTime.setText(timeout+"");
-        lpTime.width = (timeout/screenSizer);
+        timer = new CountDownTimer(timeout, 1000) {
+
+            public void onTick(long millisUntilFinished) {
+                tvTime.setText(millisUntilFinished / 1000 + "");
+                lpTime.width = (int) (millisUntilFinished/screenSizer);
+            }
+
+            public void onFinish() {
+                tvTime.setText("0");
+                lpTime.width = (0);
+            }
+        };
+        timer.start();
+
+        //tvTime.setText(timeout+"");
+        //lpTime.width = (timeout/screenSizer);
         Log.d("Quickpic","lpTime.width round: "+game.round+", "+lpTime.width);
         timeoutHandler.postDelayed(new Runnable() {
             @Override
@@ -264,6 +291,7 @@ public class QuizActivity extends AppCompatActivity {
 
     public void btnAnswerPressed(View view) {
 
+        timer.cancel();
         timeoutHandler.removeCallbacksAndMessages(null);
 
         //set view to the clicked button
@@ -274,11 +302,13 @@ public class QuizActivity extends AppCompatActivity {
         //if correct, update points/rounds and change Button color to green, otherwise to red and just update rounds
         if (checkAnswer(game.id, buttontext)) {
             clicked.setBackgroundColor(GREEN);
+            player.play(rightSound, 1, 1, 1, 0, 1);
             game.points++;
-            tvPoints.setText(getString(R.string.tvPoints) + " " + game.getPoints());
+            tvPoints.setText(getString(R.string.tvPoints) + game.getPoints());
             game.round++;
         } else {
             clicked.setBackgroundColor(RED);
+            player.play(falseSound, 1, 1, 1, 0, 1);
             if (checkAnswer(game.id, btn1.getText().toString())) {
                 btn1.setBackgroundColor(GREEN);
             }
@@ -322,7 +352,7 @@ public class QuizActivity extends AppCompatActivity {
                             intent.putExtra("Points", game.points);
                             startActivity(intent);
                         } else {
-                            Toast toast = Toast.makeText(getApplicationContext(), "New Level!", Toast.LENGTH_SHORT);
+                            Toast toast = Toast.makeText(getApplicationContext(), R.string.new_level, Toast.LENGTH_SHORT);
                             toast.setGravity(Gravity.CENTER,0,0);
                             //give the toast a visible background color and a nice width:
                             View toastView = toast.getView();

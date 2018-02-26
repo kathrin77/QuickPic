@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">QuickPic</string>
+    <string name="question">Frage: ...</string>
+    <string name="round">"Runde: "</string>
+    <string name="points">"Punkte: "</string>
+    <string name="btnStr3">Antwort 3</string>
+    <string name="btnStr1">Antwort 1</string>
+    <string name="btnStr2">Antwort 2</string>
+    <string name="bntStr4">Antwort 4</string>
+    <string name="time">"verbleibende Zeit: "</string>
+    <string name="imgDescription">Errate dieses Bild</string>
+    <string name="imgBtnMountain">Starte das Berg-Quiz!</string>
+    <string name="imgBtnFish">Starte das Meerestiere-Quiz!</string>
+    <string name="imgBtnTree">Starte das Baum-Quiz!</string>
+    <string name="btnStartseite">Zurück zum Anfang</string>
+    <string name="btnSaveName">Speichern</string>
+    <string name="tVName">Du hast es unter die Top 3 geschafft! \n Gib deinen Namen ein.</string>
+    <string name="HighscoreFrom">" von "</string>
+    <string name="tvPoints">"Punkte: "</string>
+    <string name="new_level">Nächstes Level!</string>
+    <string name="youHaveReached">"Du hast "</string>
+    <string name="reachedPoints">" Punkte erreicht."</string>
+</resources>

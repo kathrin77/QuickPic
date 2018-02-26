@@ -137,9 +137,9 @@ public class HighscoreActivity extends AppCompatActivity {
         int highscore = getHighscore(keynumber);
         if (highscore > 0) {
             if (keynumber == 1) {
-                tVHighscore.setText(Integer.toString(highscore) + " " + getString(R.string.HighscoreFrom) + " " + getHighscoreName(keynumber) + "\n");
+                tVHighscore.setText(Integer.toString(highscore) + getString(R.string.HighscoreFrom) + getHighscoreName(keynumber) + "\n");
             } else{
-                tVHighscore.append(Integer.toString(highscore) + " " + getString(R.string.HighscoreFrom) + " " + getHighscoreName(keynumber) + "\n");
+                tVHighscore.append(Integer.toString(highscore) + getString(R.string.HighscoreFrom) + getHighscoreName(keynumber) + "\n");
             }
         } else {
             tVHighscore.append("-\n");
@@ -147,6 +147,6 @@ public class HighscoreActivity extends AppCompatActivity {
     }
 
     private void showPoints() {
-        tVcurrentPoints.setText(getString(R.string.currentPoints1) + " " + currentPoints + " " + getString(R.string.currentPoints2));
+        tVcurrentPoints.setText(getString(R.string.youHaveReached) + currentPoints + getString(R.string.reachedPoints));
     }
 }
