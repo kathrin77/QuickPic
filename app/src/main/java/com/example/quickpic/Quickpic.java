@@ -36,21 +36,21 @@ public class Quickpic {
 
     //Marine animals:
     String[][] f = {
-            {"img_beluga","Beluga Whale","4,5 m","1.400 kg"},
-            {"img_blowfish","Blowfish","35 cm","13,5 kg"},
-            {"img_bullshark", "Bull Shark","1,8 m","130 kg"},
-            {"img_clownfish","Clownfish","8 cm","250 g"},
-            {"img_eaglerays","Eagle Ray","9,1 m","1.600 kg"},
-            {"img_finnwhale","Finn Whale","27 m","up to 80 tons"},
-            {"img_goldfish","Goldfish","30 cm","up to 3 kg"},
-            {"img_hammerhead","Hammerhead","6,1 m","450 kg"},
-            {"img_humpbackwhale","Humpback Whale","16 m","30.000 kg"},
-            {"img_orca","Orca Whale","8 m","5.400 kg"},
-            {"img_pilotwhale", "Pilot Whale","5,5 m","3.000 kg"},
-            {"img_spermwhale","Sperm Whale","12 m","57.000 kg"},
-            {"img_tigershark","Tiger Shark","550 cm","650 kg"},
-            {"img_whaleshark","Whale Shark","10 m","19.000 kg"},
-            {"img_whiteshark","White Shark","6,4 m","1.100 kg"}
+            {"img_beluga",      "Beluga Whale", "4,5 m",    "1.400 kg"},
+            {"img_blowfish",    "Blowfish",     "35 cm",    "13,5 kg"},
+            {"img_bullshark",   "Bull Shark",   "1,8 m",    "130 kg"},
+            {"img_clownfish",   "Clownfish",    "8 cm",     "250 g"},
+            {"img_eaglerays",   "Eagle Ray",    "9,1 m",    "1.600 kg"},
+            {"img_finnwhale",   "Finn Whale",   "27 m",     "up to 80 tons"},
+            {"img_goldfish",    "Goldfish",     "30 cm",    "up to 3 kg"},
+            {"img_hammerhead",  "Hammerhead",   "6,1 m",    "450 kg"},
+            {"img_humpbackwhale","Humpback Whale","16 m",   "30.000 kg"},
+            {"img_orca",        "Orca Whale",   "8 m",      "5.400 kg"},
+            {"img_pilotwhale",  "Pilot Whale",  "5,5 m",    "3.000 kg"},
+            {"img_spermwhale",  "Sperm Whale",  "12 m",     "57.000 kg"},
+            {"img_tigershark",  "Tiger Shark",  "5 m",      "650 kg"},
+            {"img_whaleshark",  "Whale Shark",  "10 m",     "19.000 kg"},
+            {"img_whiteshark",  "White Shark",  "6,4 m",    "1.100 kg"}
     };
 
     //TODO: Trees
