@@ -149,7 +149,7 @@ public class QuizActivity extends AppCompatActivity {
     public void startNewLevel(int level, char topic) {
         game.setLevel(level);
         tvLevel.setText(getString(R.string.level) + game.getLevel());
-        tvQuestion.setText(game.getQuestion(topic, game.getLevel()));
+        //tvQuestion.setText(game.getQuestion(topic, game.getLevel()));
         //int questionID =
         //String questionID = game.getQuestion(topic, game.getLevel());
         //tvQuestion.setText(getString(R.string.questionID));
