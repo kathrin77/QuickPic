@@ -42,20 +42,21 @@
     </string>
     <string name="btnhighscore">show highscore list</string>
 
-    <string name="qm1">"What is the name of this mountain?"</string>
+    <string name="qm1">What is the name of this mountain?</string>
     <string name="qm2">How high is this mountain?</string>
-    <string name="qm3">"In which country lies this mountain?"</string>
+    <string name="qm3">In which country lies this mountain?</string>
+    <string name="qf1">What is the name of this animal?</string>
+    <string name="qf2">How long can this animal get?</string>
+    <string name="qf3">How much can this animal weigh?</string>
+    <string name="qt1">Tree question 1</string>
+    <string name="qt2">Tree question 2</string>
+    <string name="qt3">Tree question 3</string>
 
-    <array name="questions">
-        <item>@string/qm1</item>
-        <item>@string/qm2</item>
-        <item>@string/qm3</item>
-    </array>
-    <array name="myArray_1">
-            <item>"string_1_0"</item>
-            <item>"string_1_1"</item>
-            <item>"string_1_2"</item>
-            ...
-    </array>
+
+
+<!--    <string name="set_01">Mountains</string>
+    <string name="set_02">Fish</string>
+    <string name="set_01_Question_01">1. Bergefrage</string>
+    <string name="set_01_Answer_01_01"></string>-->
 </resources>
 

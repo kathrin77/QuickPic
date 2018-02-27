@@ -1,5 +1,6 @@
 package com.example.quickpic;
 
+import android.content.Context;
 import android.content.Intent;
 import android.media.AudioManager;
 import android.media.SoundPool;
@@ -51,7 +52,7 @@ public class QuizActivity extends AppCompatActivity {
     int rightSound;
     int falseSound;
 
-    Quickpic game = new Quickpic();
+    Quickpic game = new Quickpic(this);
 
     //New arraylist, fill with all possible ids (0-14):
     ArrayList<Integer> possibleAnswers = new ArrayList<>();
@@ -116,13 +117,17 @@ public class QuizActivity extends AppCompatActivity {
             }
         });
 
-        loadGame();
+        try {
+            loadGame();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
     /**
      * starts a new game, based on the topic passed on by the intent from startactivity
      */
-    public void loadGame() {
+    public void loadGame() throws ClassNotFoundException {
         //get the selected topic from StartActivity and set game.topic:
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
@@ -146,15 +151,19 @@ public class QuizActivity extends AppCompatActivity {
      * @param level
      * @param topic
      */
-    public void startNewLevel(int level, char topic) {
+    public void startNewLevel(int level, char topic) throws ClassNotFoundException {
         game.setLevel(level);
         tvLevel.setText(getString(R.string.level) + game.getLevel());
-        //tvQuestion.setText(game.getQuestion(topic, game.getLevel()));
-        //int questionID =
+        //tvQuestion.setText();
+        //String questionID = game.getQuestion(topic, game.getLevel());
+        tvQuestion.setText(game.getQuestion(topic, game.getLevel()));
+
+        //tvQuestion.setText(Class.forName(getPackageName()+".R$string"+questionID));
+        //tvQuestion.setText(Class.forName("QuickPic.app.src.main.res.values.strings."+questionID);
         //String questionID = game.getQuestion(topic, game.getLevel());
         //tvQuestion.setText(getString(R.string.questionID));
         //tvQuestion.setText(getResources().getText());
-        //                imgQuiz.setImageDrawable(getResources().getDrawable(getRandomPicture(game.id)));
+        //imgQuiz.setImageDrawable(getResources().getDrawable(getRandomPicture(game.id)));
 
     }
 
@@ -252,6 +261,7 @@ public class QuizActivity extends AppCompatActivity {
     public int getRandomPicture(int id) {
         //first string from array = img_..., position [?][0]
         game.img_resource = game.answer[id][0];
+        //game.img_resource = getString(R.array.m);
 
         //int of the img_resource
         int resource_ID = getResources().getIdentifier(game.img_resource, "drawable", getPackageName());
@@ -370,7 +380,11 @@ public class QuizActivity extends AppCompatActivity {
                             if (game.lives < 3) {
                                 game.lives++;
                             }
-                            startNewLevel(game.getLevel(), game.topic);
+                            try {
+                                startNewLevel(game.getLevel(), game.topic);
+                            } catch (ClassNotFoundException e) {
+                                e.printStackTrace();
+                            }
                             startNewRound(game.getRound());
                         }
                     } else {
