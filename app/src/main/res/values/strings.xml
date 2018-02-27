@@ -23,4 +23,39 @@
     <string name="HighscoreFrom">" from "</string>
     <string name="tvPoints">"Points: "</string>
     <string name="new_level">New Level!</string>
+    <string name="about">About Quickpic</string>
+    <string name="instructions">GAME INSTRUCTIONS \n
+        \n Playing Quickpic is easy:
+        \n Pick a topic.
+        \n Look at the picture and answer the questions
+        \n Select the correct answer
+        \n If your answer is correct, the button lights up green, you get a point and the next question appears.
+        \n If your answer is incorrect, the button ligths up red. You loose a live, however, the correct answer will show up, so that you learn for the next round.
+        \n After 5 questions, the next level appears.
+        \n For each question, you get less time than before, so hurry up.
+        \n If you loose all your lives or don't answer in time, your game is over.
+        \n After 3 levels completed, you get to the highscore list.
+        \n If your score is within the best 3, you may enter your name.
+    </string>
+    <string name="credits">Image credits for Quickpic:
+        \n all images are from wikicommons, pixabay, or own photos (CC-BY).
+    </string>
+    <string name="btnhighscore">show highscore list</string>
+
+    <string name="qm1">"What is the name of this mountain?"</string>
+    <string name="qm2">How high is this mountain?</string>
+    <string name="qm3">"In which country lies this mountain?"</string>
+
+    <array name="questions">
+        <item>@string/qm1</item>
+        <item>@string/qm2</item>
+        <item>@string/qm3</item>
+    </array>
+    <array name="myArray_1">
+            <item>"string_1_0"</item>
+            <item>"string_1_1"</item>
+            <item>"string_1_2"</item>
+            ...
+    </array>
 </resources>
+

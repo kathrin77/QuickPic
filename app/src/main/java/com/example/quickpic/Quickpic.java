@@ -98,10 +98,10 @@ public class Quickpic {
     public String getMountainQuestions(int level) {
 
         switch (level) {
-            case 1: question = "What is the name of this mountain?"; break;
-            case 2: question = "How high is this mountain?"; break;
-            case 3: question = "In which country lies this mountain?"; break;
-            default: question = "You're done with this level!";
+            case 1: question = "qm1";  break;
+            case 2: question = "qm2"; break;
+            case 3: question = "qm3"; break;
+            //default: question = "You're done with this level!";
         }
         return question;
     }

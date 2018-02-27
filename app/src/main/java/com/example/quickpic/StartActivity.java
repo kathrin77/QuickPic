@@ -46,17 +46,17 @@ public class StartActivity extends AppCompatActivity {
             }
         });
 
-        // zum Testen der Highscoreliste - einfach value veraendern, Run app, und dann vom
-        // Startbildschirm aus direkt mit dieser Punktzahl in den Highscorebildschirm springen
-        Button Highscore = findViewById(R.id.button);
-        Highscore.setOnClickListener(new View.OnClickListener() {
+        //About-Button
+        Button about = findViewById(R.id.button);
+        about.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), HighscoreActivity.class);
-                intent.putExtra("Points",10);
+                Intent intent = new Intent(getApplicationContext(), AboutActivity.class);
                 startActivity(intent);
             }
         });
+
+
 
     }
 }

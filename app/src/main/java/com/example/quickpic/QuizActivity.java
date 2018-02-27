@@ -150,6 +150,12 @@ public class QuizActivity extends AppCompatActivity {
         game.setLevel(level);
         tvLevel.setText(getString(R.string.level) + game.getLevel());
         tvQuestion.setText(game.getQuestion(topic, game.getLevel()));
+        //int questionID =
+        //String questionID = game.getQuestion(topic, game.getLevel());
+        //tvQuestion.setText(getString(R.string.questionID));
+        //tvQuestion.setText(getResources().getText());
+        //                imgQuiz.setImageDrawable(getResources().getDrawable(getRandomPicture(game.id)));
+
     }
 
     /**
