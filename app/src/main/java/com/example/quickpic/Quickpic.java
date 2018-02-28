@@ -115,10 +115,26 @@ public class Quickpic {
             {"img_uluru","Uluru","863 m","Australia"},
             {"img_zugspitze","Zugspitze","2962 m","Germany"}};
 
-    String[][] t_de;
+    //TODO Bäume
+    String[][] t_de = {
+            {"img_amadablam","Ama Dablam","6812 m","Nepal"},
+            {"img_dreizinnen","Drei Zinnen","2999 m","Italy"},
+            {"img_everest","Mount Everest","8848 m","Nepal/China"},
+            {"img_fitzroy","Fitz Roy","3395 m","Argentina"},
+            {"img_fuji","Fuji","3776 m","Japan"},
+            {"img_halfdome","Half Dome","2694 m","U.S.A"},
+            {"img_huashan","Hua Shan","2155 m","China"},
+            {"img_kilimanjaro","Kilimanjaro","5895 m","Tansania"},
+            {"img_matterhorn","Matterhorn","4478 m","Switzerland"},
+            {"img_paodeacucar", "Pão de Açúcar", "396 m", "Brasil"},
+            {"img_popocatepetl","Popocatepetl","5426 m","Mexico"},
+            {"img_saentis", "Säntis", "2505 m", "Switzerland"},
+            {"img_tablemountain","Table Mountain","1085 m","South Africa"},
+            {"img_uluru","Uluru","863 m","Australia"},
+            {"img_zugspitze","Zugspitze","2962 m","Germany"}};
 
     /**
-     * Constructor for new Quickpic Object
+     * Constructor for new Quickpic Object, setting the context.
      */
     Context context;
 
@@ -146,8 +162,6 @@ public class Quickpic {
 
 
         switch (level) {
-            //case 1: question = R.string.qm1 +"";  break;
-            //case 1: question = context.getString(resrcse2id("qm3"));
             case 1: question = context.getString(R.string.qm1); break;
             case 2: question = context.getString(R.string.qm2); break;
             case 3: question = context.getString(R.string.qm3); break;

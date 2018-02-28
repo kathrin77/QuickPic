@@ -22,7 +22,29 @@
     <string name="youHaveReached">"Du hast "</string>
     <string name="reachedPoints">" Punkte erreicht."</string>
     <string name="about">Über Quickpic</string>
-    <string name="instructions">Spielanleitung : blablabla noch ergänzen</string>
-    <string name="credits">image credits for quickpic</string>
-    <string name="btnhighscore">show highscore list</string>
+    <string name="instructions">SPIELANLEITUNG\n
+        \n Quickpic ist ganz leicht:
+        \n Wähle dein Thema aus.
+        \n Beantworte die Frage zu jedem Bild, indem du die korrekte Antwort auswählst.
+        \n Wenn deine Antwort korrekt war, wird der Button grün und du erhältst einen Punkt.
+        \n Wenn deine Antwort falsch war, wird der Button rot und du verlierst ein Leben. Die richtige Antwort leuchtet kurz grün auf.
+        \n Nach 5 Fragen kommst du ins nächste Level.
+        \n Für jede Frage hast du eine halbe Sekunde weniger Zeit zum Antworten.
+        \n Wenn du alle Leben verloren hast oder nicht rechtzeitig antwortest, ist das Spiel vorbei.
+        \n Wenn du 3 Level schaffst, kommst du auf die Highscore-Liste.
+        \n Wenn du unter den besten 3 bist, kannst du dich eintragen.</string>
+    <string name="btnhighscore">Highscore-Liste anzeigen</string>
+    <string name="credits">Bildcredits für Quickpic:
+        \n Alle Bilder von wikicommons, pixabay oder eigene Bilder (CC-BY), icon von icons8.de.
+    </string>
+
+    <string name="qm1">Wie heisst dieser Berg?</string>
+    <string name="qm2">Wie hoch ist dieser Berg?</string>
+    <string name="qm3">In welchem Land liegt dieser Berg?</string>
+    <string name="qf1">Wie heisst dieses Meerestier?</string>
+    <string name="qf2">Wie gross wird dieses Tier?</string>
+    <string name="qf3">Wieviel wiegt dieses Tier?</string>
+    <string name="qt1">Baumfrage 1</string>
+    <string name="qt2">Baumfrage 2</string>
+    <string name="qt3">Baumfrage 3</string>
 </resources>
