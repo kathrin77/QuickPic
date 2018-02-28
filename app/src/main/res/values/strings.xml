@@ -38,7 +38,7 @@
         \n If your score is within the best 3, you may enter your name.
     </string>
     <string name="credits">Image credits for Quickpic:
-        \n all images are from wikicommons, pixabay, or own photos (CC-BY).
+        \n all images are from wikicommons, pixabay, or own photos (CC-BY), icon by icons8.de
     </string>
     <string name="btnhighscore">show highscore list</string>
 
@@ -57,6 +57,8 @@
 <!--    <string name="set_01">Mountains</string>
     <string name="set_02">Fish</string>
     <string name="set_01_Question_01">1. Bergefrage</string>
-    <string name="set_01_Answer_01_01"></string>-->
+    <string name="set_01_Answer_01_01">1. Berg, 1. Antwort</string>
+    etc...
+    -->
 </resources>
 

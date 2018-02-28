@@ -35,7 +35,6 @@ public class QuizActivity extends AppCompatActivity {
     ImageView imgQuiz;
     LinearLayout livesLayout;
     FrameLayout barTime;
-    //float screenDensity;
     LayoutParams lpTime;
 
     // Handler to delay the next question, to have time for changing the button color (correct: green, incorrect: red)
@@ -73,7 +72,7 @@ public class QuizActivity extends AppCompatActivity {
 
         player = new SoundPool(10, AudioManager.STREAM_MUSIC, 0);
         rightSound = player.load(this, R.raw.right_answer, 1);
-        falseSound = player.load(this, R.raw.wrong_answer, 1);
+        falseSound = player.load(this, R.raw.wrong_answer, 1); //TODO: lauter
 
         timeout = 10500;
         DisplayMetrics displaymetrics = new DisplayMetrics();
@@ -160,16 +159,7 @@ public class QuizActivity extends AppCompatActivity {
     public void startNewLevel(int level, char topic) throws ClassNotFoundException {
         game.setLevel(level);
         tvLevel.setText(getString(R.string.level) + game.getLevel());
-        //tvQuestion.setText();
-        //String questionID = game.getQuestion(topic, game.getLevel());
         tvQuestion.setText(game.getQuestion(topic, game.getLevel()));
-
-        //tvQuestion.setText(Class.forName(getPackageName()+".R$string"+questionID));
-        //tvQuestion.setText(Class.forName("QuickPic.app.src.main.res.values.strings."+questionID);
-        //String questionID = game.getQuestion(topic, game.getLevel());
-        //tvQuestion.setText(getString(R.string.questionID));
-        //tvQuestion.setText(getResources().getText());
-        //imgQuiz.setImageDrawable(getResources().getDrawable(getRandomPicture(game.id)));
 
     }
 
@@ -380,7 +370,6 @@ public class QuizActivity extends AppCompatActivity {
                             View toastView = toast.getView();
                             toastView.setBackgroundColor(getResources().getColor(R.color.toast_background_color));
                             toastView.setMinimumWidth(800);
-                            //toastView.setBackgroundResource(R.drawable.toast_background_color);
                             toast.show();
                             game.setRound(1);
                             if (game.lives < 3) {
