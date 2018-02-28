@@ -82,10 +82,7 @@ public class QuizActivity extends AppCompatActivity {
         screenSizer = (width/11);
         barTime = (FrameLayout) findViewById(R.id.barTime);
         Log.d("screensizer","screensizer" + screenSizer);
-        //screenDensity = getResources().getDisplayMetrics().density;
-        //Log.d("Quickpic","screenDensity "+ screenDensity); //= 3.0
         lpTime = barTime.getLayoutParams();
-        //lpTime.width = Math.round(screenDensity * (timeout/30));
         lpTime.width = ((timeout/1000)*screenSizer);
         Log.d("Quickpic","lpTime.width initial "+lpTime.width);
 
