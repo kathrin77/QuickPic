@@ -8,6 +8,7 @@ import android.os.CountDownTimer;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
@@ -75,13 +76,18 @@ public class QuizActivity extends AppCompatActivity {
         falseSound = player.load(this, R.raw.wrong_answer, 1);
 
         timeout = 10500;
-        screenSizer = 12;
+        DisplayMetrics displaymetrics = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(displaymetrics);
+        int height = displaymetrics.heightPixels;
+        int width = displaymetrics.widthPixels;
+        screenSizer = (width/11);
         barTime = (FrameLayout) findViewById(R.id.barTime);
+        Log.d("screensizer","screensizer" + screenSizer);
         //screenDensity = getResources().getDisplayMetrics().density;
         //Log.d("Quickpic","screenDensity "+ screenDensity); //= 3.0
         lpTime = barTime.getLayoutParams();
         //lpTime.width = Math.round(screenDensity * (timeout/30));
-        lpTime.width = (timeout/screenSizer);
+        lpTime.width = ((timeout/1000)*screenSizer);
         Log.d("Quickpic","lpTime.width initial "+lpTime.width);
 
         btn1 = (Button) findViewById(R.id.btn1);
@@ -278,7 +284,7 @@ public class QuizActivity extends AppCompatActivity {
 
             public void onTick(long millisUntilFinished) {
                 tvTime.setText(millisUntilFinished / 1000 + "");
-                lpTime.width = (int) (millisUntilFinished/screenSizer);
+                lpTime.width = (int) (millisUntilFinished/1000)*screenSizer;
             }
 
             public void onFinish() {
