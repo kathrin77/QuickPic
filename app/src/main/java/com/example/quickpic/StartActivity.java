@@ -47,7 +47,7 @@ public class StartActivity extends AppCompatActivity {
         });
 
         //About-Button
-        Button about = findViewById(R.id.button);
+        ImageButton about = findViewById(R.id.imgBtnAbout);
         about.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
