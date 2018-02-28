@@ -22,20 +22,16 @@
     <string name="youHaveReached">"Du hast "</string>
     <string name="reachedPoints">" Punkte erreicht."</string>
     <string name="about">Über Quickpic</string>
-    <string name="instructions">SPIELANLEITUNG\n
-        \n Quickpic ist ganz leicht:
-        \n Wähle dein Thema aus.
-        \n Beantworte die Frage zu jedem Bild, indem du die korrekte Antwort auswählst.
-        \n Wenn deine Antwort korrekt war, wird der Button grün und du erhältst einen Punkt.
-        \n Wenn deine Antwort falsch war, wird der Button rot und du verlierst ein Leben. Die richtige Antwort leuchtet kurz grün auf.
-        \n Nach 5 Fragen kommst du ins nächste Level.
-        \n Für jede Frage hast du eine halbe Sekunde weniger Zeit zum Antworten.
-        \n Wenn du alle Leben verloren hast oder nicht rechtzeitig antwortest, ist das Spiel vorbei.
-        \n Wenn du 3 Level schaffst, kommst du auf die Highscore-Liste.
-        \n Wenn du unter den besten 3 bist, kannst du dich eintragen.</string>
+    <string name="instructions">SPIELANLEITUNG\n\n
+        Wähle dein Thema aus. Beantworte die Frage zu jedem Bild, indem du die korrekte Antwort auswählst.
+        Wenn deine Antwort korrekt war, wird der Button grün und du erhältst einen Punkt.
+        Wenn deine Antwort falsch war, wird der Button rot und du verlierst ein Leben.
+        Die richtige Antwort leuchtet kurz grün auf. Nach 5 Fragen kommst du ins nächste Level. Für jede Frage hast du eine halbe Sekunde weniger Zeit zum Antworten.
+        Wenn du alle Leben verloren hast oder nicht rechtzeitig antwortest, ist das Spiel vorbei. Wenn du 3 Level schaffst, kommst du auf die Highscore-Liste.
+        Wenn du unter den besten 3 bist, kannst du dich eintragen.</string>
     <string name="btnhighscore">Highscore-Liste anzeigen</string>
     <string name="credits">Bildcredits für Quickpic:
-        \n Alle Bilder von wikicommons, pixabay oder eigene Bilder (CC-BY), icon von icons8.de.
+        \n Alle Bilder von wikicommons, pixabay oder eigene Bilder (CC-BY), icons von icons8.de.
     </string>
 
     <string name="qm1">Wie heisst dieser Berg?</string>

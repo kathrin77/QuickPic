@@ -16,6 +16,7 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="4dp"
         android:text="@string/instructions"
+        android:textAlignment="textStart"
         android:textAllCaps="false"
         android:textColor="@android:color/background_light"
         android:typeface="normal"
@@ -24,7 +25,9 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnhighscore"
-        tools:text="@string/instructions" />
+        app:layout_constraintVertical_bias="0.05"
+        tools:text="@string/instructions"
+        tools:textAlignment="viewStart" />
 
     <TextView
         android:id="@+id/tvAbout"

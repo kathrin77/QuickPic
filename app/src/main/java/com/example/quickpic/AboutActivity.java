@@ -22,7 +22,8 @@ public class AboutActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), HighscoreActivity.class);
-                intent.putExtra("Points",10);
+                // Für Tests Highscore-Liste
+                // intent.putExtra("Points",10);
                 startActivity(intent);
             }
         });

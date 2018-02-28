@@ -147,6 +147,8 @@ public class HighscoreActivity extends AppCompatActivity {
     }
 
     private void showPoints() {
-        tVcurrentPoints.setText(getString(R.string.youHaveReached) + currentPoints + getString(R.string.reachedPoints));
+        if (currentPoints !=0) {
+            tVcurrentPoints.setText(getString(R.string.youHaveReached) + currentPoints + getString(R.string.reachedPoints));
+        }
     }
 }
