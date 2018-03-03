@@ -97,25 +97,42 @@ public class Quickpic {
     };
 
 
-    //TODO: Trees
     String[][] t = {
-            {"img_amadablam","Ama Dablam","6812 m","Nepal"},
-            {"img_dreizinnen","Drei Zinnen","2999 m","Italy"},
-            {"img_everest","Mount Everest","8848 m","Nepal/China"},
-            {"img_fitzroy","Fitz Roy","3395 m","Argentina"},
-            {"img_fuji","Fuji","3776 m","Japan"},
-            {"img_halfdome","Half Dome","2694 m","U.S.A"},
-            {"img_huashan","Hua Shan","2155 m","China"},
-            {"img_kilimanjaro","Kilimanjaro","5895 m","Tansania"},
-            {"img_matterhorn","Matterhorn","4478 m","Switzerland"},
-            {"img_paodeacucar", "Pão de Açúcar", "396 m", "Brasil"},
-            {"img_popocatepetl","Popocatepetl","5426 m","Mexico"},
-            {"img_saentis", "Säntis", "2505 m", "Switzerland"},
-            {"img_tablemountain","Table Mountain","1085 m","South Africa"},
-            {"img_uluru","Uluru","863 m","Australia"},
-            {"img_zugspitze","Zugspitze","2962 m","Germany"}};
+            {"img_mapletree","Maple Tree","up to 150","Acer"},
+            {"img_acacia","Acacia Tree","1300","Acacia"},
+            {"img_birke","Birch Tree","50","Betula"},
+            {"img_fig","Fig Tree","1000","Ficus carica"},
+            {"img_oak","Oak Tree","400","Quercus"},
+            {"img_kastanie","Chestnut Tree","20","Castanea"},
+            {"img_gingko","Ginkgo Tree","40","Ginkgo biloba"},
+            {"img_hainbuche","Hornbeam","170","Carpinus betulus"},
+            {"img_kiefer","Pine Tree","100","Pinus"},
+            {"img_larch","Larch Tree","10","Larix"},
+            {"img_lorbeer","Laurel","3","Laurus nobilis"},
+            {"img_pinie","Pine Tree","2","Pinus pinea"},
+            {"img_weide","Willow Tree","300","Salix"},
+            {"img_walnuss","Walnut Tree","60","Juglandaceae"},
+            {"img_platane","Plane Tree","9","Platanus"},
+    };
 
-    String[][] t_de;
+    String[][] t_de = {
+            {"img_mapletree","Ahornbaum","bis zu 150","Acer"},
+            {"img_acacia","Akazienabaum","1300","Acacia"},
+            {"img_birke","Birke","50","Betula"},
+            {"img_fig","Feigenbaum","1000","Ficus carica"},
+            {"img_oak","Eichenbaum","400","Quercus"},
+            {"img_kastanie","Kastanienbaum","20","Castanea"},
+            {"img_gingko","Ginkgo","40","Ginkgo biloba"},
+            {"img_hainbuche","Hainbuche","170","Carpinus betulus"},
+            {"img_kiefer","Kiefer","100","Pinus"},
+            {"img_larch","Lärche","10","Larix"},
+            {"img_lorbeer","Lorbeer","3","Laurus nobilis"},
+            {"img_pinie","Pinienbaum","2","Pinus pinea"},
+            {"img_weide","Weide","300","Salix"},
+            {"img_walnuss","Walnussbaum","60","Juglandaceae"},
+            {"img_platane","Platane","9","Platanus"},
+    };
+
 
     /**
      * Constructor for new Quickpic Object

@@ -48,9 +48,9 @@
     <string name="qf1">What is the name of this animal?</string>
     <string name="qf2">How long can this animal get?</string>
     <string name="qf3">How much can this animal weigh?</string>
-    <string name="qt1">Tree question 1</string>
-    <string name="qt2">Tree question 2</string>
-    <string name="qt3">Tree question 3</string>
+    <string name="qt1">What is the name of this tree?</string>
+    <string name="qt2">How many species does this tree have?</string>
+    <string name="qt3">What is the latin name of the tree?</string>
 
 
 
