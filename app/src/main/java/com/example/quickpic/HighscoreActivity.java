@@ -55,7 +55,7 @@ public class HighscoreActivity extends AppCompatActivity {
         showPoints();
 
         LlNameInput = findViewById(R.id.LlNameInput);
-        LlNameInput.setVisibility(View.INVISIBLE);
+        LlNameInput.setVisibility(View.GONE);
 
         if (currentPoints > getHighscore(3)) {
             LlNameInput.setVisibility(View.VISIBLE);
@@ -77,7 +77,7 @@ public class HighscoreActivity extends AppCompatActivity {
                 showHighscore(1);
                 showHighscore(2);
                 showHighscore(3);
-                LlNameInput.setVisibility(View.INVISIBLE);
+                LlNameInput.setVisibility(View.GONE);
 
                 //Debugging
                 String top1 = "top1: " + preferences.getString(KEY_NAME+"1","") + " " + preferences.getInt(KEY+"1",0);
