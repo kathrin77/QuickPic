@@ -40,7 +40,7 @@
     <string name="qf1">Wie heisst dieses Meerestier?</string>
     <string name="qf2">Wie gross wird dieses Tier?</string>
     <string name="qf3">Wieviel wiegt dieses Tier?</string>
-    <string name="qt1">Baumfrage 1</string>
-    <string name="qt2">Baumfrage 2</string>
-    <string name="qt3">Baumfrage 3</string>
+    <string name="qt1">Wie heisst dieser Baum?</string>
+    <string name="qt2">Wie viele Arten gibt es?</string>
+    <string name="qt3">Wie heisst der lateinische Name dieses Baumes?</string>
 </resources>
