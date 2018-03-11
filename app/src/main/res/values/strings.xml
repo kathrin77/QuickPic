@@ -25,14 +25,14 @@
     <string name="new_level">New Level!</string>
     <string name="about">About Quickpic</string>
     <string name="instructions">GAME INSTRUCTIONS \n\n
-        Pick a topic. Look at the picture and answer the questions. Select the correct answer.
-        If your answer is correct, the button lights up green, you get a point and the next question appears.
-        If your answer is incorrect, the button ligths up red. You loose a live, however, the correct answer will show up, so that you learn for the next round.
-        After 5 questions, the next level appears. For each question, you get less time than before, so hurry up.
-        If you loose all your lives or don't answer in time, your game is over.
-        After 3 levels completed, you get to the highscore list. If your score is within the best 3, you may enter your name.
+        Pick a topic. Look at the picture and select the correct answer.
+        If your answer is correct, you get a point and the next question appears.
+        If your answer is incorrect, you loose a live.
+        After 5 questions, you get to the next level.
+        If you loose all your lives or do not answer in time, your game is over.
+        After 3 completed levels, you get to the highscore list. If your score is within the best 3, you may enter your name.
     </string>
-    <string name="credits">Image credits for Quickpic:
+    <string name="credits">Credits for Quickpic:
         \n all images are from wikicommons, pixabay, or own photos (CC-BY), icons by icons8.de
     </string>
     <string name="btnhighscore">show highscore list</string>
