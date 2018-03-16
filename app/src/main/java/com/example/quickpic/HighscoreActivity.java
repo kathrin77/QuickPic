@@ -91,14 +91,32 @@ public class HighscoreActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * get the points of highscore list on given position keynumber from shared preferences
+     *
+     * @param keynumber position in highscore list
+     * @return highscore points
+     */
     private int getHighscore(int keynumber) {
+
         return preferences.getInt(KEY+keynumber,0);
     }
 
+    /**
+     * get the name of highscore list on given position keynumber from shared preferences
+     *
+     * @param keynumber position in highscore list
+     * @return highscore name
+     */
     private String getHighscoreName(int keynumber) {
         return preferences.getString(KEY_NAME+keynumber, "");
     }
 
+    /**
+     * writes names and points of top 3 highscores to shared preferences
+     *
+     * @param highscore new highscore points to add
+     */
     private void writeHighscore(int highscore) {
         EditText eTName = findViewById(R.id.eTName);
         String name = eTName.getText().toString().trim();
@@ -133,6 +151,11 @@ public class HighscoreActivity extends AppCompatActivity {
         preferencesEditor.commit();
     }
 
+    /**
+     * displays highscores on given position keynumber in textView
+     *
+     * @param keynumber
+     */
      private void showHighscore(int keynumber) {
         int highscore = getHighscore(keynumber);
         if (highscore > 0) {
@@ -146,6 +169,9 @@ public class HighscoreActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * displays message with reached points
+     */
     private void showPoints() {
         if (currentPoints !=0) {
             tVcurrentPoints.setText(getString(R.string.youHaveReached) + currentPoints + getString(R.string.reachedPoints));
