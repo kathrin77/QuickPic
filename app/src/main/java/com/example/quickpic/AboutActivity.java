@@ -15,14 +15,12 @@ public class AboutActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
 
-        // zum Testen der Highscoreliste - einfach value veraendern, Run app, und dann vom
-        // Startbildschirm aus direkt mit dieser Punktzahl in den Highscorebildschirm springen
         Button Highscore = findViewById(R.id.btnhighscore);
         Highscore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), HighscoreActivity.class);
-                // Für Tests Highscore-Liste
+                // For Tests Highscore-List:
                 // intent.putExtra("Points",10);
                 startActivity(intent);
             }

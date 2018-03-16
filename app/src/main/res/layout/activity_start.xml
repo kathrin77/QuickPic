@@ -103,11 +103,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
                 android:layout_marginTop="16dp"
-                android:background="@android:color/background_light"
+                android:background="@android:color/transparent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/info"
-                android:layout_marginRight="16dp" />
+                app:srcCompat="@drawable/info" />
 
         </android.support.constraint.ConstraintLayout>
 

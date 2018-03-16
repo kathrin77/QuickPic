@@ -1,12 +1,10 @@
 package com.example.quickpic;
 
 import android.content.Context;
+import android.util.Log;
 
 import java.util.Locale;
 
-/**
- * Created by kathr on 05.02.2018.
- */
 
 public class Quickpic {
 
@@ -19,6 +17,9 @@ public class Quickpic {
     String img_resource;
     char topic;
     String[][] answer;
+
+    //LOG:
+    public static final String LOGTAG = "Quickpic"; //for logcat
 
 
 
@@ -96,7 +97,7 @@ public class Quickpic {
             {"img_whiteshark",  "Weisser Hai",  "6,4 m",    "1'100 kg"}
     };
 
-
+    //Trees
     String[][] t = {
             {"img_mapletree","Maple Tree","up to 150","Acer"},
             {"img_acacia","Acacia Tree","1300","Acacia"},
@@ -115,6 +116,7 @@ public class Quickpic {
             {"img_platane","Plane Tree","9","Platanus"},
     };
 
+    //Baeume
     String[][] t_de = {
             {"img_mapletree","Ahornbaum","bis zu 150","Acer"},
             {"img_acacia","Akazienabaum","1300","Acacia"},
@@ -135,7 +137,7 @@ public class Quickpic {
 
 
     /**
-     * Constructor for new Quickpic Object
+     * Constructor for new Quickpic Object, setting the context
      */
     Context context;
 
@@ -150,7 +152,6 @@ public class Quickpic {
      */
 
     public String getQuestion(char topic, int level) {
-
         switch (topic) {
             case 'm': question = getMountainQuestions(level); break;
             case 'f': question = getFishQuestions(level); break;
@@ -159,63 +160,81 @@ public class Quickpic {
         return question;
     }
 
+    /**
+     * gets the mountain questions from strings.xml
+     * @param level
+     * @return question (String)
+     */
+
     public String getMountainQuestions(int level) {
-
-
         switch (level) {
-            //case 1: question = R.string.qm1 +"";  break;
-            //case 1: question = context.getString(resrcse2id("qm3"));
             case 1: question = context.getString(R.string.qm1); break;
             case 2: question = context.getString(R.string.qm2); break;
             case 3: question = context.getString(R.string.qm3); break;
-            //default: question = "You're done with this level!";
         }
         return question;
     }
+
+    /**
+     * gets the marine-animals questions from strings.xml
+     * @param level
+     * @return question (String)
+     */
 
     public String getFishQuestions(int level) {
         switch (level) {
             case 1: question = context.getString(R.string.qf1); break;
             case 2: question = context.getString(R.string.qf2); break;
             case 3: question = context.getString(R.string.qf3); break;
-            //default: question = "You're done with this level!";
         }
         return question;
     }
+
+    /**
+     * gets the tree questions from strings.xml
+     * @param level
+     * @return question (String)
+     */
 
     public String getTreeQuestions(int level) {
         switch (level) {
             case 1: question = context.getString(R.string.qt1); break;
             case 2: question = context.getString(R.string.qt2); break;
             case 3: question = context.getString(R.string.qt3); break;
-            //default: question = "You're done with this level!";
         }
         return question;
     }
 
     public void setQuestion(String question) {
         this.question = question;
-    } //not needed??
+    }
+
+    /**
+     * evaluates the device language and sets the array answer accordingly to the right language version and topic.
+     * @param topic
+     * @return array with correct answers
+     */
 
     public String[][] getAnswer(char topic) {
 
         String lang = Locale.getDefault().getLanguage();
+        Log.d("Quickpic","String lang: "+lang);
 
         switch (topic) {
-            case 'm': if (lang == "de") {
+            case 'm': if (lang.matches("de")) {
                 answer = m_de; break;
             } else answer = m; break;
-            case 'f': if (lang == "de") {
+            case 'f': if (lang.matches("de")) {
                 answer = f_de; break;
             } else answer = f; break;
-            case 't': if (lang == "de") {
+            case 't': if (lang.matches("de")) {
                 answer = t_de; break;
             } else answer = t; break;
         }
         return answer;
     }
 
-    public void setAnswer(String[][] answer) { //not needed?
+    public void setAnswer(String[][] answer) {
         this.answer = answer;
     }
 
@@ -241,7 +260,7 @@ public class Quickpic {
 
     public void setPoints(int points) {
         this.points = points;
-    } //not needed?
+    }
 
     public int getLives() {
         return lives;

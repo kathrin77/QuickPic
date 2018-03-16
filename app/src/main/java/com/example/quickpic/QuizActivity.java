@@ -240,13 +240,12 @@ public class QuizActivity extends AppCompatActivity {
      * @return the new id for this round
      */
     public int getRandomId() {
-        //eine Zufallszahl zwischen 0 und 14:
         int current_id = (int) (Math.random() * game.answer.length);
         return current_id;
     }
 
     /**
-     * get the resource id from the picture id
+     * get the resource id (integer) from the picture id
      *
      * @param id
      * @return resource id (integer)
@@ -254,7 +253,6 @@ public class QuizActivity extends AppCompatActivity {
     public int getRandomPicture(int id) {
         //first string from array = img_..., position [?][0]
         game.img_resource = game.answer[id][0];
-        //game.img_resource = getString(R.array.m);
 
         //int of the img_resource
         int resource_ID = getResources().getIdentifier(game.img_resource, "drawable", getPackageName());
@@ -294,7 +292,6 @@ public class QuizActivity extends AppCompatActivity {
 
     /**
      * This method evaluates the answers and continues the game to the next round/level or ends the game.
-     *
      * @param view
      */
 
