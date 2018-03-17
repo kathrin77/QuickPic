@@ -17,7 +17,7 @@
     <string name="tVGameOver" translatable="false">Game Over!</string>
     <string name="btnSaveName">Save</string>
     <string name="tVName">You\'ve made it to the top 3! \n Enter your name.</string>
-    <string name="tVTitle" translatable="false">Highscore</string>
+    <string name="tVTitle" translatable="false">HIGHSCORE</string>
     <string name="youHaveReached">"You have reached "</string>
     <string name="reachedPoints">" points."</string>
     <string name="HighscoreFrom">" from "</string>

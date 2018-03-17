@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303f9f</color>
+    <color name="colorPrimary">#2e82ba</color>
+    <color name="colorPrimaryDark">#3e8abc</color>
     <color name="colorAccent">#FF4081</color>
-    <color name="toast_background_color">#fd0261</color>
+    <color name="toast_background_color">#3e8abc</color>
+    <color name="colorBackground">#dee2e5</color>
+    <color name="colorGO">#840a0a</color>
 </resources>

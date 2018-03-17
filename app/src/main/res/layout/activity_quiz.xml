@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorBackground"
     tools:context="com.example.quickpic.QuizActivity">
 
     <ScrollView
@@ -114,7 +115,6 @@
                     android:layout_gravity="bottom|right"
                     android:layout_margin="10dp"
                     android:gravity="bottom|right"
-                    android:textAlignment="center"
                     android:textAllCaps="false"
                     android:textSize="18sp"
                     tools:text="@string/bntStr4" />

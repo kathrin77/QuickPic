@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorBackground"
     tools:context="com.example.quickpic.HighscoreActivity">
 
     <ScrollView
@@ -38,6 +39,7 @@
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
+                android:background="@drawable/button"
                 android:text="@string/btnStartseite"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -51,6 +53,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:text="@string/tVTitle"
+                android:textColor="@color/colorPrimaryDark"
                 android:textAlignment="center"
                 android:textSize="18sp"
                 android:textStyle="bold"
@@ -105,6 +108,7 @@
 
                 <Button
                     android:id="@+id/btnSaveName"
+                    android:background="@drawable/button"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/btnSaveName"

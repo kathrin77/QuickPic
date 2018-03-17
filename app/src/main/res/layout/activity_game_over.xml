@@ -4,10 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorBackground"
     tools:context="com.example.quickpic.GameOverActivity">
 
     <Button
         android:id="@+id/btnStartseite"
+        android:background="@drawable/button"
         android:layout_width="245dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="120dp"
@@ -30,7 +32,7 @@
         android:layout_marginTop="8dp"
         android:text="@string/tVGameOver"
         android:textAlignment="center"
-        android:textColor="@android:color/holo_red_dark"
+        android:textColor="@color/colorGO"
         android:textSize="36sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/btnStartseite"
