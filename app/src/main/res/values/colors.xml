@@ -4,6 +4,7 @@
     <color name="colorPrimaryDark">#3e8abc</color>
     <color name="colorAccent">#FF4081</color>
     <color name="toast_background_color">#3e8abc</color>
+    <!--vorher fd0261-->
     <color name="colorBackground">#dee2e5</color>
     <color name="colorGO">#840a0a</color>
 </resources>

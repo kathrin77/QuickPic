@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">QuickPic</string>
+    <string name="app_name">FastQuiz</string>
     <string name="question">Frage: ...</string>
     <string name="round">"Runde: "</string>
     <string name="points">"Punkte: "</string>
@@ -21,7 +21,7 @@
     <string name="new_level">Nächstes Level!</string>
     <string name="youHaveReached">"Du hast "</string>
     <string name="reachedPoints">" Punkte erreicht."</string>
-    <string name="about">Über Quickpic</string>
+    <string name="about">Über FastQuiz</string>
     <string name="instructions">SPIELANLEITUNG\n\n
         Wähle dein Thema aus. Beantworte die Frage zu jedem Bild.
         Wenn deine Antwort korrekt war, erhältst du einen Punkt.
@@ -31,7 +31,7 @@
         Wenn du 3 Level schaffst, kommst du auf die Highscore-Liste.
         Wenn du unter den besten drei bist, kannst du dich eintragen.</string>
     <string name="btnhighscore">Highscore-Liste anzeigen</string>
-    <string name="credits">Credits für Quickpic:
+    <string name="credits">Credits für FastQuiz:
         \n Alle Bilder von wikicommons, pixabay oder eigene Bilder (CC-BY), icons von icons8.de.
     </string>
 
