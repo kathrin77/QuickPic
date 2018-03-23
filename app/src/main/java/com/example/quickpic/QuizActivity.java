@@ -72,7 +72,7 @@ public class QuizActivity extends AppCompatActivity {
 
         player = new SoundPool(10, AudioManager.STREAM_MUSIC, 0);
         rightSound = player.load(this, R.raw.right_answer, 1);
-        falseSound = player.load(this, R.raw.wrong_answer, 1); //TODO: lauter
+        falseSound = player.load(this, R.raw.wrong_answer, 1);
 
         timeout = 10500;
         DisplayMetrics displaymetrics = new DisplayMetrics();
