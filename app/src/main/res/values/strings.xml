@@ -33,7 +33,7 @@
         After 3 completed levels, you get to the highscore list. If your score is within the best 3, you may enter your name.
     </string>
     <string name="credits">Credits for FastQuiz:
-        \n all images are from wikicommons, pixabay, or own photos (CC-BY), icons by icons8.de
+        \n all images are from wikicommons, pixabay, or own photos (CC-BY), icons by icons8.de, sounds by freesound.org
     </string>
     <string name="btnhighscore">show highscore list</string>
 
